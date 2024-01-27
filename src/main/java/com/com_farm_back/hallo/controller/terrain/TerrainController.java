@@ -28,7 +28,7 @@ public class TerrainController {
         return new ResponseEntity<>(terrains, HttpStatus.OK);
     }
 
-    @GetMapping("/terrains")
+    @GetMapping
     public List<Terrain> getTerrainsByProprietaire(@RequestParam("id_proprietaire") int idProprietaire) {
         return terrainService.getTerrainsByProprietaire(idProprietaire);
     }
