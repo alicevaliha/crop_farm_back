@@ -28,9 +28,9 @@ public class TerrainController {
         return new ResponseEntity<>(terrains, HttpStatus.OK);
     }
 
-    @GetMapping
-    public List<Terrain> getTerrainsByProprietaire(@RequestParam("id_proprietaire") int idProprietaire) {
-        return terrainService.getTerrainsByProprietaire(idProprietaire);
+    @GetMapping("/proprietaire/{id}")
+    public List<Terrain> getTerrainsByProprietaire(@PathVariable("id") int id) {
+        return terrainService.getTerrainsByProprietaire(id);
     }
 
     @GetMapping("/{id}")
