@@ -9,5 +9,8 @@ import java.util.List;
 public interface TerrainRepository extends JpaRepository<Terrain, Integer> {
 
     List<Terrain> findByCorbeille(int corbeille);
+
+    // List<Terrain> findById_proprietaireAndCorbeille(int id_proprietaire, int corbeille);
+
     
 }

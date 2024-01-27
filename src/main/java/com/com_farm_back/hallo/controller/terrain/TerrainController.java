@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.com_farm_back.hallo.model.terrain.Terrain;
 import com.com_farm_back.hallo.service.TerrainService;
@@ -25,6 +26,11 @@ public class TerrainController {
     public ResponseEntity<List<Terrain>> getAllTerrains() {
         List<Terrain> terrains = terrainService.getAllTerrains();
         return new ResponseEntity<>(terrains, HttpStatus.OK);
+    }
+
+    @GetMapping("/terrains")
+    public List<Terrain> getTerrainsByProprietaire(@RequestParam("id_proprietaire") int idProprietaire) {
+        return terrainService.getTerrainsByProprietaire(idProprietaire);
     }
 
     @GetMapping("/{id}")

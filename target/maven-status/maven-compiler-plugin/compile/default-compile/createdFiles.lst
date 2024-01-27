@@ -27,6 +27,7 @@ com/com_farm_back/hallo/dao/Proprietaire_dao$1.class
 com/com_farm_back/hallo/model/dto/TerrainDTO.class
 com/com_farm_back/hallo/repository/PlanteRepository.class
 com/com_farm_back/hallo/model/terrain/Terrain.class
+com/com_farm_back/hallo/dao/TerrainDAO.class
 com/com_farm_back/hallo/model/proprietaire/Messagerie.class
 com/com_farm_back/hallo/service/Messagerie_serve.class
 com/com_farm_back/hallo/service/Plante_serve.class

@@ -2,6 +2,7 @@
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/service/Parcelle_serve.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/repository/TerrainRepository.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/repository/ProprietaireRepository.java
+/Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/dao/TerrainDAO.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/model/proprietaire/Proprietaire.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/controller/categorie/Categorie_culture_controller.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/controller/terrain/Terrain_controller.java
