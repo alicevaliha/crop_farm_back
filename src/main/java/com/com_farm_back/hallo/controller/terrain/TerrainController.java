@@ -63,14 +63,9 @@ public class TerrainController {
 
 
     @PutMapping("/{id}")
-    public ResponseEntity<Terrain> updateTerrain(@PathVariable("id") int id, @RequestBody Terrain terrain) {
-        terrain.setId_terrain(id);
-        Terrain updatedTerrain = terrainService.updateTerrain(terrain);
-        if (updatedTerrain != null) {
-            return new ResponseEntity<>(updatedTerrain, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public ResponseEntity<Terrain> updateTerrain(@PathVariable(value = "id") int id, @RequestBody Terrain terrainDetails)throws Exception {
+        Terrain updatedTerrain = terrainService.updateTerrain(id, terrainDetails);
+        return ResponseEntity.ok(updatedTerrain);
     }
 
     @DeleteMapping("/{id}")

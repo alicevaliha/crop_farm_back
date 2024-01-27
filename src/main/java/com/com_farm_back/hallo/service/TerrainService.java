@@ -7,6 +7,7 @@ import com.com_farm_back.hallo.dao.TerrainDAO;
 import com.com_farm_back.hallo.dao.Terrain_dao;
 import com.com_farm_back.hallo.model.terrain.Terrain;
 import com.com_farm_back.hallo.repository.TerrainRepository;
+import java.util.*;
 
 @Service
 public class TerrainService {
@@ -45,12 +46,42 @@ public class TerrainService {
         return terrainRepository.save(terrain);
     }
 
-    public Terrain updateTerrain(Terrain terrain) {
-        if (terrainRepository.existsById(terrain.getId_terrain())) {
-            return terrainRepository.save(terrain);
+    public Terrain updateTerrain(int id, Terrain terrainDetails) throws Exception{
+        // Rechercher le terrain existant dans la base de données par son ID
+        Optional<Terrain> terrainOptional = terrainRepository.findById(id);
+    
+        if (terrainOptional.isPresent()) {
+            Terrain terrainExistante = terrainOptional.get();
+    
+            // Mettre à jour uniquement les attributs spécifiés dans terrainDetails
+            if (terrainDetails.getDesc_terrain() != null) {
+                terrainExistante.setDesc_terrain(terrainDetails.getDesc_terrain());
+            }
+            if (terrainDetails.getCoord_location() != null) {
+                // terrainExistante.setCoordLocation(terrainDetails.getCoordLocation());
+            }
+            if(String.valueOf(terrainDetails.getId_proprietaire()) != null ){
+                terrainExistante.setId_proprietaire(terrainDetails.getId_proprietaire());
+            }
+            if(String.valueOf(terrainDetails.getLongueur()) != null ){
+                terrainExistante.setLongueur(terrainDetails.getLongueur());
+            }
+            if(String.valueOf(terrainDetails.getLargeur()) != null ){
+                terrainExistante.setLargeur(terrainDetails.getLargeur());
+            }
+            if(String.valueOf(terrainDetails.getCorbeille()) != null ){
+                terrainExistante.setCorbeille(terrainDetails.getCorbeille());
+            }
+            // Mettre à jour d'autres attributs si nécessaire
+    
+            // Enregistrer les modifications dans la base de données
+            return terrainRepository.save(terrainExistante);
+        } else {
+            // Gérer le cas où aucun terrain avec cet ID n'est trouvé
+            throw new Exception("Terrain non trouvé avec l'ID : " + id);
         }
-        return null; // Handle this case according to your application logic
     }
+    
 
     public void deleteTerrain(int id) {
         terrainRepository.deleteById(id);
