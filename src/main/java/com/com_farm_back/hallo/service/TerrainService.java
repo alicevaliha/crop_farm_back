@@ -60,16 +60,16 @@ public class TerrainService {
             if (terrainDetails.getCoord_location() != null) {
                 // terrainExistante.setCoordLocation(terrainDetails.getCoordLocation());
             }
-            if(String.valueOf(terrainDetails.getId_proprietaire()) != null ){
+            if(terrainDetails.getId_proprietaire() != 0){
                 terrainExistante.setId_proprietaire(terrainDetails.getId_proprietaire());
             }
             if(terrainDetails.getLongueur() != 0 ){
                 terrainExistante.setLongueur(terrainDetails.getLongueur());
             }
-            if(String.valueOf(terrainDetails.getLargeur()) != null ){
+            if(terrainDetails.getLargeur() != 0){
                 terrainExistante.setLargeur(terrainDetails.getLargeur());
             }
-            if(String.valueOf(terrainDetails.getCorbeille()) != null ){
+            if(terrainDetails.getCorbeille() != 0 ){
                 terrainExistante.setCorbeille(terrainDetails.getCorbeille());
             }
             // Mettre à jour d'autres attributs si nécessaire
