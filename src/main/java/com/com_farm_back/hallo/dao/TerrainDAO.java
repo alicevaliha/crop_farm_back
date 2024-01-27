@@ -21,9 +21,10 @@ public class TerrainDAO {
     private JdbcTemplate jdbcTemplate;
 
     public List<Terrain> getTerrainsByIdProprietaire(int idProprietaire) {
-        String sql = "select * from terrain where id_proprietaire=? corbeille = 0";
-        List<Terrain> result = jdbcTemplate.query(sql, new Object[]{idProprietaire},  new BeanPropertyRowMapper<>(Terrain.class));
+        String sql = "select * from terrain where id_proprietaire = ? and corbeille = 0";
+        List<Terrain> result = jdbcTemplate.query(sql, new Object[]{idProprietaire}, new BeanPropertyRowMapper<>(Terrain.class));
         return result;
     }
+    
 
 }
