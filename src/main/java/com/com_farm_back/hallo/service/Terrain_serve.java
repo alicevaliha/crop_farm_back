@@ -59,15 +59,15 @@ public class Terrain_serve {
         }
     }
 
-    public int insertTerrain(Terrain terrain,int nbparcelle)throws Exception{
-        try {
-            if (terrain.getId_proprietaire()<0) 
-            throw new Exception("Error insertion terrain proprietaire inexistant");
-            return dao.insertTerrain(terrain,nbparcelle);
-        } catch (Exception e) {
-            throw new Exception("Error terrain inexistant lors de recuperation de terrain",e);
-        }
-    }
+    // public int insertTerrain(Terrain terrain,int nbparcelle)throws Exception{
+    //     try {
+    //         if (terrain.getId_proprietaire()<0) 
+    //         throw new Exception("Error insertion terrain proprietaire inexistant");
+    //         return dao.insertTerrain(terrain,nbparcelle);
+    //     } catch (Exception e) {
+    //         throw new Exception("Error terrain inexistant lors de recuperation de terrain",e);
+    //     }
+    // }
     public int deleteterrain(String idterrain)throws Exception{
         try {
             if (idterrain.equals("")) throw new Exception("Error terrain inexistant");

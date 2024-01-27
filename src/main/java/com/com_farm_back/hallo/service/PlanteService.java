@@ -22,6 +22,10 @@ public class PlanteService {
         return planteRepository.findById(id);
     }
 
+    public List<Plante> getAllPlantesWithCorbeilleEqualsToZero() {
+        return planteRepository.findByCorbeille(0);
+    }
+
     public Plante savePlante(Plante plante) {
         return planteRepository.save(plante);
     }

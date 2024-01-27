@@ -1,7 +1,15 @@
 package com.com_farm_back.hallo.model.categorie;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Entity
 public class Categorie_culture {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private int id_categorie_culture;
     private String nomcategorie;
     private int corbeille;

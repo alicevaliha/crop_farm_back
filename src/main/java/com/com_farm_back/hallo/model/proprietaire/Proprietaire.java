@@ -2,21 +2,22 @@ package com.com_farm_back.hallo.model.proprietaire;
 import java.sql.Date;
 
 public class Proprietaire {
+
     private int id;
     private String nom;
     private String mail;
     private String mdp;
     private Date dtn;
-    private int corbeil;
+    private int corbeille;
 
 
-    public Proprietaire(int id, String nom, String mail, String mdp, Date dtn, int corbeil) {
+    public Proprietaire(int id, String nom, String mail, String mdp, Date dtn, int corbeille) {
         setId(id);
         setNom(nom);
         setMail(mail);
         setMdp(mdp);
         setDtn(dtn);
-        setCorbeil(corbeil);
+        setCorbeille(corbeille);
     }
     public Proprietaire(String nom, String mail, String mdp, Date dtn) {
         setNom(nom);
@@ -70,11 +71,11 @@ public class Proprietaire {
         this.dtn = dtn;
     }
 
-    public int getCorbeil() {
-        return corbeil;
+    public int getCorbeille() {
+        return corbeille;
     }
 
-    public void setCorbeil(int corbeil) {
-        this.corbeil = corbeil;
+    public void setCorbeille(int corbeille) {
+        this.corbeille = corbeille;
     }
 }

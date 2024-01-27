@@ -18,7 +18,7 @@ public class PlanteController {
 
     @GetMapping
     public ResponseEntity<List<Plante>> getAllPlantes() {
-        List<Plante> plantes = planteService.getAllPlantes();
+        List<Plante> plantes = planteService.getAllPlantesWithCorbeilleEqualsToZero();
         return new ResponseEntity<>(plantes, HttpStatus.OK);
     }
 

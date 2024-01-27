@@ -67,26 +67,26 @@ public class Terrain_dao {
         }
     }
     
-    public int insertTerrain(Terrain terrain,int nbparcelle)throws Exception{
+    // public int insertTerrain(Terrain terrain,int nbparcelle)throws Exception{
 
-        String sql = "INSERT INTO terrain (id_proprietaire, desc_terrain, coord_location, surface, corbeille) VALUES (?, ?, ?, ?, 0) RETURNING *";
-        try {
-            List<Terrain> result = jdbcTemplate.query(sql, new Object[]{terrain.getId_proprietaire(),terrain.getDesc_terrain(),terrain.getCoord_location(),terrain.getSurface()}, new BeanPropertyRowMapper<>(Terrain.class));
-            Terrain newterrain = result.isEmpty() ? null : result.get(0);
-            if(newterrain.equals(null)){
-                throw new Exception("Erreur insertion terrain");
-            }
-            if (nbparcelle>0) {
-                for(int i=0;i<nbparcelle;i++){
-                    parcelleDao.insertparcelle(newterrain.getId_terrain(), 0,0, 0);
-                }
-            }
-            return newterrain.getId_terrain();
-        } catch (Exception e) {
-            // TODO: handle exception
-            throw new Exception("Erreur insertion terrain our parcelle",e);
-        }
-    }
+    //     String sql = "INSERT INTO terrain (id_proprietaire, desc_terrain, coord_location, surface, corbeille) VALUES (?, ?, ?, ?, 0) RETURNING *";
+    //     try {
+    //         List<Terrain> result = jdbcTemplate.query(sql, new Object[]{terrain.getId_proprietaire(),terrain.getDesc_terrain(),terrain.getCoord_location(),terrain.getSurface()}, new BeanPropertyRowMapper<>(Terrain.class));
+    //         Terrain newterrain = result.isEmpty() ? null : result.get(0);
+    //         if(newterrain.equals(null)){
+    //             throw new Exception("Erreur insertion terrain");
+    //         }
+    //         if (nbparcelle>0) {
+    //             for(int i=0;i<nbparcelle;i++){
+    //                 parcelleDao.insertparcelle(newterrain.getId_terrain(), 0,0, 0);
+    //             }
+    //         }
+    //         return newterrain.getId_terrain();
+    //     } catch (Exception e) {
+    //         // TODO: handle exception
+    //         throw new Exception("Erreur insertion terrain our parcelle",e);
+    //     }
+    // }
 
     public int deleteterrain(int idterrain)throws Exception{
         String sql = "UPDATE terrain SET corbeille = 2 WHERE corbeille = 1 and id_terrain = ?";

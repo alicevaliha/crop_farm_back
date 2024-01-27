@@ -17,9 +17,12 @@ public class Plante {
     private double prixvente;
     private String sprite_plante;
     private int placeingamemaker;
+    private int corbeille;
     
+
+
     public Plante(int id_plante, int id_categorie_culture, String nom_plante, double prixachat, double prixvente,
-            String sprite_plante, int placeingamemaker) {
+            String sprite_plante, int placeingamemaker,int corbeille) {
         set_Idplante(id_plante);
         setId_categorie_culture(id_categorie_culture);
         setNom_plante(nom_plante);
@@ -27,6 +30,7 @@ public class Plante {
         setPrixvente(prixvente);
         setSprite_plante(sprite_plante);
         setPlaceingamemaker(placeingamemaker);
+        setCorbeille(corbeille);
     }
 
 
@@ -74,6 +78,16 @@ public class Plante {
     }
     public void setPlaceingamemaker(int placeingamemaker) {
         this.placeingamemaker = placeingamemaker;
+    }
+
+
+    public int getCorbeille() {
+        return corbeille;
+    }
+
+
+    public void setCorbeille(int corbeille) {
+        this.corbeille = corbeille;
     }
 
 

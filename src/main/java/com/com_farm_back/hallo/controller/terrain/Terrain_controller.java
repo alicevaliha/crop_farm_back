@@ -8,7 +8,7 @@ import com.com_farm_back.hallo.model.dto.TerrainDTO;
 import com.com_farm_back.hallo.model.terrain.Terrain;
 import com.com_farm_back.hallo.service.Terrain_serve;
 
-import java.util.List;
+// import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -30,29 +30,29 @@ public class Terrain_controller {
     {
         this.service = servivce;
     }
-    @GetMapping
-    public ResponseEntity<Object> get_all_Terrains() {
-         try {
-            List<Terrain> list_Terrains =  service.getTerrains();
-            logger.info("Liste des terrains récupérée avec succès : {}", list_Terrains);
-            return Gestion_exception.generateResponse("Liste terrains", HttpStatus.OK, list_Terrains);
-        } catch (Exception e) {
-            logger.error("Une erreur s'est produite lors de la récupération des terrains : {}", e.getMessage());
-            return Gestion_exception.generateResponse("Erreur survenue lors de la récupération des terrains", HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage());
-        }
-    }
+    // @GetMapping
+    // public ResponseEntity<Object> get_all_Terrains() {
+    //      try {
+    //         List<Terrain> list_Terrains =  service.getTerrains();
+    //         logger.info("Liste des terrains récupérée avec succès : {}", list_Terrains);
+    //         return Gestion_exception.generateResponse("Liste terrains", HttpStatus.OK, list_Terrains);
+    //     } catch (Exception e) {
+    //         logger.error("Une erreur s'est produite lors de la récupération des terrains : {}", e.getMessage());
+    //         return Gestion_exception.generateResponse("Erreur survenue lors de la récupération des terrains", HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage());
+    //     }
+    // }
 
-    @GetMapping("/invalid")
-    public ResponseEntity<Object> get_all_Terrains_invalid() {
-        try {
-           List<Terrain> list_Terrains =  service.getTerrainsInvalid();
-           logger.info("Liste des terrains récupérée avec succès : {}", list_Terrains);
-           return Gestion_exception.generateResponse("Liste terrains", HttpStatus.OK, list_Terrains);
-       } catch (Exception e) {
-           logger.error("Une erreur s'est produite lors de la récupération des terrains : {}", e.getMessage());
-           return Gestion_exception.generateResponse("Erreur survenue lors de la récupération des terrains", HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage());
-       }
-   }
+//     @GetMapping("/invalid")
+//     public ResponseEntity<Object> get_all_Terrains_invalid() {
+//         try {
+//            List<Terrain> list_Terrains =  service.getTerrainsInvalid();
+//            logger.info("Liste des terrains récupérée avec succès : {}", list_Terrains);
+//            return Gestion_exception.generateResponse("Liste terrains", HttpStatus.OK, list_Terrains);
+//        } catch (Exception e) {
+//            logger.error("Une erreur s'est produite lors de la récupération des terrains : {}", e.getMessage());
+//            return Gestion_exception.generateResponse("Erreur survenue lors de la récupération des terrains", HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage());
+//        }
+//    }
 
    @PutMapping("/{id}")
     public ResponseEntity<Object> validationTerrain(@PathVariable("id") String id) throws Exception{
@@ -66,19 +66,19 @@ public class Terrain_controller {
         }
     }
 
-    @PostMapping
-    public ResponseEntity<Object> insertTerrain(@RequestBody TerrainDTO terrain) throws Exception
-    {
-        Terrain t = new Terrain(terrain.getId_proprietaire(),terrain.getDesc_terrain(), terrain.getCoord_location(), terrain.getSurface());
-        try {
-            int result = service.insertTerrain(t,terrain.getNombre_parcelle());
-            System.out.println(result);
-            return Gestion_exception.generateResponse("enregistrement terrain", HttpStatus.OK,result);
-        } catch (Exception e) {
-            logger.error("Une erreur s'est produite lors de l'enregestrement terrain : {}", e.getMessage());
-            return Gestion_exception.generateResponse("Erreur survenue lors de l'enregestrement terrain", HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage());
-        }
-    }
+    // @PostMapping
+    // public ResponseEntity<Object> insertTerrain(@RequestBody TerrainDTO terrain) throws Exception
+    // {
+    //     Terrain t = new Terrain(terrain.getId_proprietaire(),terrain.getDesc_terrain(), terrain.getCoord_location(), terrain.getSurface());
+    //     try {
+    //         int result = service.insertTerrain(t,terrain.getNombre_parcelle());
+    //         System.out.println(result);
+    //         return Gestion_exception.generateResponse("enregistrement terrain", HttpStatus.OK,result);
+    //     } catch (Exception e) {
+    //         logger.error("Une erreur s'est produite lors de l'enregestrement terrain : {}", e.getMessage());
+    //         return Gestion_exception.generateResponse("Erreur survenue lors de l'enregestrement terrain", HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage());
+    //     }
+    // }
 
     @GetMapping("/{id}")
     public ResponseEntity<Object> getTerrainById(@PathVariable("id") String id) throws Exception{
@@ -122,17 +122,17 @@ public class Terrain_controller {
             return Gestion_exception.generateResponse("Erreur survenue lors de la mise à jour terrain", HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage());
         }
     }
-    @GetMapping("/photo/{id}")
-    public ResponseEntity<Object> getPhotoTerrainById(@PathVariable("id") String id) throws Exception{
-        try {
-            int id_terrain = Integer.parseInt(id);
-            List<String> terrain = service.getTerrainsPhotos(Integer.toString(id_terrain));
-            return Gestion_exception.generateResponse("recuperation photo terrain ok", HttpStatus.OK,terrain);
-        } catch (Exception e) {
-            logger.error("Une erreur s'est produite lors de la recuperation photo terrain : {}", e.getMessage());
-            return Gestion_exception.generateResponse("Erreur survenue lors de la recuperation photo terrain by id", HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage());
-        }
-    }
+    // @GetMapping("/photo/{id}")
+    // public ResponseEntity<Object> getPhotoTerrainById(@PathVariable("id") String id) throws Exception{
+    //     try {
+    //         int id_terrain = Integer.parseInt(id);
+    //         List<String> terrain = service.getTerrainsPhotos(Integer.toString(id_terrain));
+    //         return Gestion_exception.generateResponse("recuperation photo terrain ok", HttpStatus.OK,terrain);
+    //     } catch (Exception e) {
+    //         logger.error("Une erreur s'est produite lors de la recuperation photo terrain : {}", e.getMessage());
+    //         return Gestion_exception.generateResponse("Erreur survenue lors de la recuperation photo terrain by id", HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage());
+    //     }
+    // }
 
     @DeleteMapping("/photo")
     public ResponseEntity<Object> deletepicture(@RequestBody TerrainDTO terrain)throws Exception{     
