@@ -37,7 +37,7 @@ public class PlanteController {
     }
 
     @PostMapping
-    public ResponseEntity<Plante> savePlante(@RequestBody Plante plante) {
+    public ResponseEntity<Plante> createPlante(@RequestBody Plante plante) {
         Plante savedPlante = planteService.savePlante(plante);
         return new ResponseEntity<>(savedPlante, HttpStatus.CREATED);
     }

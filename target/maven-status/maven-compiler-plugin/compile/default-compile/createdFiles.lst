@@ -3,6 +3,7 @@ com/com_farm_back/hallo/controller/parcelle/Parcelle_controller.class
 com/com_farm_back/hallo/repository/ProprietaireRepository.class
 com/com_farm_back/hallo/controller/proprietaire/Proprietaire_controller.class
 com/com_farm_back/hallo/controller/terrain/Terrain_controller.class
+com/com_farm_back/hallo/controller/proprietaire/ProprietaireController.class
 com/com_farm_back/hallo/controller/exception/Gestion_exception.class
 com/com_farm_back/hallo/config/FireBaseConfig.class
 com/com_farm_back/hallo/model/categorie/Categorie_culture.class
@@ -25,6 +26,7 @@ com/com_farm_back/hallo/service/Parcelle_serve.class
 com/com_farm_back/hallo/HalloApplication.class
 com/com_farm_back/hallo/dao/Proprietaire_dao$1.class
 com/com_farm_back/hallo/model/dto/TerrainDTO.class
+com/com_farm_back/hallo/service/ProprietaireService.class
 com/com_farm_back/hallo/repository/PlanteRepository.class
 com/com_farm_back/hallo/model/terrain/Terrain.class
 com/com_farm_back/hallo/dao/TerrainDAO.class

@@ -9,6 +9,7 @@
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/model/dto/Categorie_cultureDTO.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/controller/exception/Gestion_exception.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/repository/PlanteRepository.java
+/Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/service/ProprietaireService.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/model/terrain/Terrain.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/model/plante/Plante.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/service/TerrainService.java
@@ -20,6 +21,7 @@
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/model/dto/ProprietaireDTO.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/config/CorsConfig.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/dao/Categorie_culture_dao.java
+/Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/controller/proprietaire/ProprietaireController.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/repository/MessagerieRepository.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/service/Plante_serve.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/controller/parcelle/Parcelle_controller.java
