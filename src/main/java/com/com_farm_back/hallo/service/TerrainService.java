@@ -63,7 +63,7 @@ public class TerrainService {
             if(String.valueOf(terrainDetails.getId_proprietaire()) != null ){
                 terrainExistante.setId_proprietaire(terrainDetails.getId_proprietaire());
             }
-            if(String.valueOf(terrainDetails.getLongueur()) != null ){
+            if(terrainDetails.getLongueur() != 0 ){
                 terrainExistante.setLongueur(terrainDetails.getLongueur());
             }
             if(String.valueOf(terrainDetails.getLargeur()) != null ){
