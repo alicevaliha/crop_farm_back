@@ -40,6 +40,7 @@ public class PlanteController {
     public ResponseEntity<Plante> createPlante(@RequestBody Plante plante) {
         Plante savedPlante = planteService.savePlante(plante);
         return new ResponseEntity<>(savedPlante, HttpStatus.CREATED);
+        
     }
 
     @PutMapping("/{id}")
