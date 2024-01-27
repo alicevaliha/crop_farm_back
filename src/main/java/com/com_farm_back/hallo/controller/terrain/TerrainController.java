@@ -49,7 +49,7 @@ public class TerrainController {
         return new ResponseEntity<>(terrains, HttpStatus.OK);
     }
 
-    @PostMapping("/terrain")
+    @PostMapping
     public ResponseEntity<Terrain> saveOrCreateTerrain(@RequestBody Terrain terrain) {
         if (terrain.getId_terrain() != 0) {
             Terrain savedTerrain = terrainService.saveTerrain(terrain);
