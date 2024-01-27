@@ -14,17 +14,20 @@ public class Parcelle
     private int longueur;
     private int largeur;
     private double rendement;
+    private int corbeille;
+
 
     public Parcelle(){}
 
     public Parcelle(int id,int idterrain , double rend,
-    double sur,int longeur,int largeur)
+    double sur,int longeur,int largeur,int corb)
     {
         setId_parcelle(id);
         setId_terrain(idterrain);
         setLargeur(largeur);
         setLongueur(longeur);
         setRendement(rend);
+        setCorbeille(corb);
     }
 
     public int getId_parcelle() {
@@ -61,6 +64,14 @@ public class Parcelle
 
     public void setLargeur(int largeur) {
         this.largeur = largeur;
+    }
+
+    public int getCorbeille() {
+        return corbeille;
+    }
+
+    public void setCorbeille(int corbeille) {
+        this.corbeille = corbeille;
     }
 
 }

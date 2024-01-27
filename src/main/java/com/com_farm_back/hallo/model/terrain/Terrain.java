@@ -1,7 +1,15 @@
 package com.com_farm_back.hallo.model.terrain;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Entity
 public class Terrain {
     
+      
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_terrain;
     private int id_proprietaire;
     private String desc_terrain;
@@ -22,12 +30,6 @@ public class Terrain {
         setCorbeille(corb);
     }
 
-    // public Terrain(int id_proprietaire, String desc_terrain, String coord_location, double surface) {
-    //     this.setId_proprietaire(id_proprietaire);
-    //     this.setDesc_terrain(desc_terrain);
-    //     this.setCoord_location(coord_location);
-    //     this.setSurface(surface);
-    // }
 
     public int getId_terrain() {
         return id_terrain;

@@ -18,6 +18,13 @@ public class PlanteController {
 
     @GetMapping
     public ResponseEntity<List<Plante>> getAllPlantes() {
+        List<Plante> plantes = planteService.getAllPlantes();
+        return new ResponseEntity<>(plantes, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/active")
+    public ResponseEntity<List<Plante>> getNonDeletedPlantes() {
         List<Plante> plantes = planteService.getAllPlantesWithCorbeilleEqualsToZero();
         return new ResponseEntity<>(plantes, HttpStatus.OK);
     }
