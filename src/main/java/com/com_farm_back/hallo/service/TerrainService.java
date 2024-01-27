@@ -41,6 +41,10 @@ public class TerrainService {
         return terrainRepository.save(terrain);
     }
 
+    public Terrain createTerrain(Terrain terrain) {
+        return terrainRepository.save(terrain);
+    }
+
     public Terrain updateTerrain(Terrain terrain) {
         if (terrainRepository.existsById(terrain.getId_terrain())) {
             return terrainRepository.save(terrain);

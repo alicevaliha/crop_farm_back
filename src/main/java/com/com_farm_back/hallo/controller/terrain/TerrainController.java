@@ -49,11 +49,18 @@ public class TerrainController {
         return new ResponseEntity<>(terrains, HttpStatus.OK);
     }
 
-    @PostMapping
-    public ResponseEntity<Terrain> saveTerrain(@RequestBody Terrain terrain) {
-        Terrain savedTerrain = terrainService.saveTerrain(terrain);
-        return new ResponseEntity<>(savedTerrain, HttpStatus.CREATED);
+    @PostMapping("/terrain")
+    public ResponseEntity<Terrain> saveOrCreateTerrain(@RequestBody Terrain terrain) {
+        if (terrain.getId_terrain() != 0) {
+            Terrain savedTerrain = terrainService.saveTerrain(terrain);
+            return new ResponseEntity<>(savedTerrain, HttpStatus.OK);
+        } else {
+            Terrain createdTerrain = terrainService.createTerrain(terrain);
+            return new ResponseEntity<>(createdTerrain, HttpStatus.CREATED);
+        }
     }
+
+
 
     @PutMapping("/{id}")
     public ResponseEntity<Terrain> updateTerrain(@PathVariable("id") int id, @RequestBody Terrain terrain) {
