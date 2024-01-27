@@ -1,13 +1,14 @@
 package com.project_cloud_s5.hallo;
+import com.com_farm_back.hallo.HalloApplication;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.Test;
 
-@SpringBootTest
-class HalloApplicationTests {
+@SpringBootTest(classes = HalloApplication.class)
+public class HalloApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
 }

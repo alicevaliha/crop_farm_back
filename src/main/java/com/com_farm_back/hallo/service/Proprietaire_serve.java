@@ -1,0 +1,45 @@
+package com.com_farm_back.hallo.service;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.stereotype.Service;
+
+import com.com_farm_back.hallo.dao.Proprietaire_dao;
+import com.com_farm_back.hallo.model.proprietaire.Proprietaire;
+
+@Service
+public class Proprietaire_serve {
+    private final Proprietaire_dao dao;
+    @Autowired 
+    public Proprietaire_serve(Proprietaire_dao dao)
+    {
+        this.dao = dao;
+    }   
+    public List<Proprietaire> getProprietaires() {
+        return dao.getProprietaires();
+    }
+
+    public Proprietaire seLogin(String mail, String mdp) throws Exception
+    {
+        try {
+            return dao.seLogin(mail, mdp);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public boolean inscrire(Proprietaire proprietaire, String confirmMdp) throws Exception{
+        try {
+            if (proprietaire != null) {
+                if (proprietaire.getNom().isEmpty() || proprietaire.getNom()=="") throw new Exception("Nom not found");
+                if (proprietaire.getMail().isEmpty() || proprietaire.getMail()=="") throw new Exception("Invalid Mail");
+                if (proprietaire.getMdp().isEmpty() || proprietaire.getMdp()=="" || proprietaire.getMdp().compareTo(confirmMdp)!=0) throw new Exception("Invalid password");
+            }
+            return dao.inscrire(proprietaire);
+        } catch (Exception e) {
+            throw e;
+            // TODO: handle exception
+        }
+    }
+}
