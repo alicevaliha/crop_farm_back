@@ -45,9 +45,6 @@ public class PlanteController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Plante> updatePlante(@PathVariable("id") Integer id, @RequestBody Plante plante) {
-        if (plante.getId_plante() != id) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
         Plante updatedPlante = planteService.updatePlante(id,plante);
         return updatedPlante != null ? new ResponseEntity<>(updatedPlante, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
