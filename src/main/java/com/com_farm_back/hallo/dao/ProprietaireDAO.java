@@ -15,6 +15,7 @@ public class ProprietaireDAO {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
+    
 
     public Proprietaire Login(String mail, String mdp) throws Exception {
         if (mail == null || mail.isEmpty() || !mail.contains("@")) {
@@ -24,8 +25,11 @@ public class ProprietaireDAO {
         System.out.println(sql);
 
         try {
-            Proprietaire proprietaire = jdbcTemplate.queryForObject(sql, new Object[]{mail}, new BeanPropertyRowMapper<>(Proprietaire.class));
+            System.out.println("trying to connect whith"+mail);
+            System.out.println("Parameter - mail: " + mail);
 
+            Proprietaire proprietaire = jdbcTemplate.queryForObject(sql, new Object[]{mail}, new BeanPropertyRowMapper<>(Proprietaire.class));
+    
             if (proprietaire==null || mail.compareTo(proprietaire.getMail())!=0) throw new Exception("Compte inexist sur mail: "+mail);
             if (proprietaire != null && mdp.equals(proprietaire.getMdp())) 
             return proprietaire; 

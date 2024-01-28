@@ -9,5 +9,7 @@ import java.util.List;
 public interface ProprietaireRepository extends JpaRepository<Proprietaire, Integer> {
 
     List<Proprietaire> findByCorbeille(int corbeille);
+
+    List<Proprietaire> findByMail(String mail);
     
 }
