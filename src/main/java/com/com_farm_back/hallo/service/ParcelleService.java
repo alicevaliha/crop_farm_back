@@ -2,8 +2,11 @@ package com.com_farm_back.hallo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.com_farm_back.hallo.dao.ParcelleDAO;
+import com.com_farm_back.hallo.dao.TerrainDAO;
 import com.com_farm_back.hallo.model.parcelle.Parcelle;
 import com.com_farm_back.hallo.repository.ParcelleRepository;
+import com.google.gson.JsonArray;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,11 +14,13 @@ import java.util.Optional;
 @Service
 public class ParcelleService {
 
+    private final ParcelleDAO dao;
     private final ParcelleRepository parcelleRepository;
 
     @Autowired
-    public ParcelleService(ParcelleRepository parcelleRepository) {
+    public ParcelleService(ParcelleRepository parcelleRepository,ParcelleDAO dao) {
         this.parcelleRepository = parcelleRepository;
+        this.dao = dao;
     }
 
     public List<Parcelle> getAllParcelles() {
@@ -61,4 +66,8 @@ public class ParcelleService {
     public void deleteParcelle(int id) {
         parcelleRepository.deleteById(id);
     }
+
+    public JsonArray getDataParcelle() {
+        return dao.getDataParcelle();
+    } 
 }

@@ -20,8 +20,16 @@ public class TerrainDAO {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public List<Terrain> getTerrainsByIdProprietaire(int idProprietaire) {
+    public List<Terrain> getTerrainsByIdProprietaireUnvalid(int idProprietaire) {
         String sql = "select * from terrain where id_proprietaire ="+ idProprietaire+" and corbeille = 0";
+        System.out.println(sql);
+        List<Terrain> result = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Terrain.class));
+        
+        return result;
+    }
+
+    public List<Terrain> getTerrainsByIdProprietaireValid(int idProprietaire) {
+        String sql = "select * from terrain where id_proprietaire ="+ idProprietaire+" and corbeille = 1";
         System.out.println(sql);
         List<Terrain> result = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Terrain.class));
         

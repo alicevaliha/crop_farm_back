@@ -31,7 +31,11 @@ public class TerrainService {
     }
 
     public List<Terrain> getTerrainsByProprietaire(int idProprietaire) {
-        return dao.getTerrainsByIdProprietaire(idProprietaire);
+        return dao.getTerrainsByIdProprietaireValid(idProprietaire);
+    }
+
+    public List<Terrain> getTerrainsByProprietaireUnvalid(int idProprietaire) {
+        return dao.getTerrainsByIdProprietaireUnvalid(idProprietaire);
     }
 
     public List<Terrain> getNonDeletedTerrains() {

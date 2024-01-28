@@ -33,6 +33,11 @@ public class TerrainController {
         return terrainService.getTerrainsByProprietaire(id);
     }
 
+    @GetMapping("/proprietaire/unvalid/{id}")
+    public List<Terrain> getTerrainsByProprietaireUnvalid(@PathVariable("id") int id) {
+        return terrainService.getTerrainsByProprietaireUnvalid(id);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Terrain> getTerrainById(@PathVariable("id") int id) {
         Terrain terrain = terrainService.getTerrainById(id);
@@ -59,9 +64,6 @@ public class TerrainController {
             return new ResponseEntity<>(createdTerrain, HttpStatus.CREATED);
         }
     }
-
-
-
     @PutMapping("/{id}")
     public ResponseEntity<Terrain> updateTerrain(@PathVariable(value = "id") int id, @RequestBody Terrain terrainDetails)throws Exception {
         Terrain updatedTerrain = terrainService.updateTerrain(id, terrainDetails);
@@ -73,4 +75,5 @@ public class TerrainController {
         terrainService.deleteTerrain(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+    
 }

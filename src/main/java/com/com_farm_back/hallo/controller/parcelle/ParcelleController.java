@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.com_farm_back.hallo.model.parcelle.Parcelle;
 import com.com_farm_back.hallo.service.ParcelleService;
+import com.google.gson.JsonArray;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,6 +26,11 @@ public class ParcelleController {
     public ResponseEntity<List<Parcelle>> getAllParcelles() {
         List<Parcelle> parcelles = parcelleService.getAllParcelles();
         return new ResponseEntity<>(parcelles, HttpStatus.OK);
+    }
+
+    @GetMapping("/list")
+    public JsonArray getDataParcelle() {
+        return parcelleService.getDataParcelle();
     }
 
     @GetMapping("/{id}")
