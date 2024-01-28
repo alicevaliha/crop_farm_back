@@ -157,7 +157,7 @@ join plante as pl on p.id_plante=pl.id_plante;
 
 --grosse view ^^
 create or replace view v_alldata as 
-select vp.id_parcelle,vpl.id_plante,vpl.nom_plante,vp.idproprietaire,vp.nom,vp.mail
+select vp.id_parcelle,vpl.id_plante,vpl.nom_plante,vp.idproprietaire,vp.nom,vp.mail,vp.id_terrain
 from v_categorie_parcelle_plante as vpl
 join v_parcelle_proprietaire as vp on vpl.id_parcelle = vp.id_parcelle;
 
@@ -168,14 +168,21 @@ SELECT
     STRING_AGG(nom_plante, ', ') AS nom_plantes,
     idproprietaire,
     nom,
-    mail
+    mail,
+    id_terrain
 FROM
     v_alldata
 GROUP BY
-    id_parcelle, idproprietaire, nom, mail;
+    id_parcelle, idproprietaire, nom, mail,id_terrain;
 
 --requête filtrage parcelle
 SELECT * FROM v_all_concat WHERE id_plantes LIKE '%2%';
+
+--concat + terrain
+
+select v.id_parcelle,v.id_plantes,v.nom_plantes,v.idproprietaire,v.nom,v.mail,t.id_terrain
+from v_all_concat as v
+join terrain as t on v.id_parcelle=t.id_parcelle;
 
 --objectif = view simulation 
 
