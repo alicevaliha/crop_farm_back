@@ -20,9 +20,10 @@ public class ProprietaireDAO {
         if (mail == null || mail.isEmpty() || !mail.contains("@")) {
             throw new Exception("Invalid email");
         }
-        String sql = "SELECT * FROM proprietaire WHERE mail = ?";
+        String sql = "SELECT * FROM proprietaire WHERE mail ='"+mail+"'";
+        System.out.println(sql);
         try {
-            Proprietaire proprietaire = jdbcTemplate.queryForObject(sql, new Object[]{mail}, new BeanPropertyRowMapper<>(Proprietaire.class));
+            Proprietaire proprietaire = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Proprietaire.class));
 
             if (proprietaire==null || mail.compareTo(proprietaire.getMail())!=0) throw new Exception("Compte inexist sur mail: "+mail);
             if (proprietaire != null && mdp.equals(proprietaire.getMdp())) 
