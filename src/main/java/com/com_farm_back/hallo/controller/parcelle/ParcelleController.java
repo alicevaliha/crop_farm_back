@@ -34,6 +34,12 @@ public class ParcelleController {
         return new ResponseEntity<>(parcelleService.getDataParcelle(),HttpStatus.OK);
     }
 
+    @GetMapping("/terrains/{id}")
+    public ResponseEntity<List<Parcelle>> getParcelleByTerrain(@PathVariable("id") int id) {
+        List<Parcelle> parcelles = parcelleService.getParcelleByTerrain(id);
+        return new ResponseEntity<>(parcelles,HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Parcelle> getParcelleById(@PathVariable("id") int id) {
         Optional<Parcelle> parcelle = parcelleService.getParcelleById(id);

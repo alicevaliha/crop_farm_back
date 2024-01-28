@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.com_farm_back.hallo.model.parcelle.Parcelle;
+import com.com_farm_back.hallo.model.terrain.Terrain;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -23,28 +25,21 @@ public class ParcelleDAO {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-   public List<Map<String, Object>>  getDataParcelle() {
+    public List<Map<String, Object>>  getDataParcelle() {
         String sql = "SELECT * FROM v_all_concat";
         System.out.println("Executing SQL query: " + sql);
 
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
 
-        // Construire le JSONArray
-        // JsonArray jsonArray = new JsonArray();
-        // for (Map<String, Object> row : rows) {
-        //     JsonObject jsonObject = new JsonObject();
-        //     for (Map.Entry<String, Object> entry : row.entrySet()) {
-        //         jsonObject.addProperty(entry.getKey(), entry.getValue().toString());
-        //     }
-        //     jsonArray.add(jsonObject);
-        // }
-
-        // // Sérialiser le JsonArray en format JSON
-        // Gson gson = new Gson();
-        // String jsonOutput = gson.toJson(jsonArray);
-        // System.out.println("Serialized JSON Array: " + jsonOutput);
-
         return rows;
+    }
+
+    public List<Parcelle>  getParcelleByTerrain(int idterrain) {
+        String sql = "SELECT * FROM v_all_concat where id_terrain="+idterrain;
+        System.out.println(sql);
+        List<Parcelle> result = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Parcelle.class));
+        
+        return result;
     }
     
 }

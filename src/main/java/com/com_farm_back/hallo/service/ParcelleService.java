@@ -71,4 +71,9 @@ public class ParcelleService {
     public List<Map<String, Object>>  getDataParcelle() {
         return dao.getDataParcelle();
     } 
+
+    public List<Parcelle>  getParcelleByTerrain(int idterrain) {
+        return dao.getParcelleByTerrain(idterrain);
+    }
+
 }
