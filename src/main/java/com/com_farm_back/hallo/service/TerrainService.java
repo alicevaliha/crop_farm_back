@@ -38,6 +38,10 @@ public class TerrainService {
         return dao.getTerrainsByIdProprietaireUnvalid(idProprietaire);
     }
 
+    public List<Terrain> getTerrainsByProprietaireValid(int idProprietaire) {
+        return dao.getTerrainsByIdProprietaireValid(idProprietaire);
+    }
+
     public List<Terrain> getNonDeletedTerrains() {
         return terrainRepository.findByCorbeille(0);
     }

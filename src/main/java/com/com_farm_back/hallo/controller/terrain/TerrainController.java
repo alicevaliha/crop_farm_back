@@ -34,9 +34,15 @@ public class TerrainController {
         return terrains.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(terrains);
     }
 
-    @GetMapping("/proprietaire/inactive/{id}")
+    @GetMapping("/proprietaire/invalid/{id}")
     public ResponseEntity<List<Terrain>> getTerrainsByProprietaireUnvalid(@PathVariable("id") int id) {
         List<Terrain> terrains = terrainService.getTerrainsByProprietaireUnvalid(id);
+        return terrains.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(terrains);
+    }
+
+    @GetMapping("/proprietaire/valid/{id}")
+    public ResponseEntity<List<Terrain>> getTerrainsByProprietaireValid(@PathVariable("id") int id) {
+        List<Terrain> terrains = terrainService.getTerrainsByProprietaireValid(id);
         return terrains.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(terrains);
     }
 
