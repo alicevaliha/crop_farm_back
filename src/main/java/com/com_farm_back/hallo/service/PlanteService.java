@@ -69,6 +69,10 @@ public class PlanteService {
             if (updatedPlante.getCorbeille() != 0) {
                 existingPlante.setCorbeille(updatedPlante.getCorbeille());
             }
+
+            if (updatedPlante.getRendement() != 0) {
+                existingPlante.setRendement(updatedPlante.getRendement());
+            }
     
             // Enregistrer et retourner la plante mise à jour
             return planteRepository.save(existingPlante);
