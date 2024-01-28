@@ -9,6 +9,7 @@ import com.com_farm_back.hallo.service.ParcelleService;
 import com.google.gson.JsonArray;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -29,7 +30,7 @@ public class ParcelleController {
     }
 
     @GetMapping("/list")
-    public ResponseEntity<JsonArray> getDataParcelle() {
+    public ResponseEntity<List<Map<String, Object>> > getDataParcelle() {
         return new ResponseEntity<>(parcelleService.getDataParcelle(),HttpStatus.OK);
     }
 

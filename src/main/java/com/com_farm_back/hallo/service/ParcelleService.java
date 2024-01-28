@@ -9,6 +9,7 @@ import com.com_farm_back.hallo.repository.ParcelleRepository;
 import com.google.gson.JsonArray;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -67,7 +68,7 @@ public class ParcelleService {
         parcelleRepository.deleteById(id);
     }
 
-    public JsonArray getDataParcelle() {
+    public List<Map<String, Object>>  getDataParcelle() {
         return dao.getDataParcelle();
     } 
 }

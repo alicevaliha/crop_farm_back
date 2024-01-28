@@ -23,28 +23,28 @@ public class ParcelleDAO {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-   public JsonArray getDataParcelle() {
+   public List<Map<String, Object>>  getDataParcelle() {
         String sql = "SELECT * FROM v_all_concat";
         System.out.println("Executing SQL query: " + sql);
 
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
 
         // Construire le JSONArray
-        JsonArray jsonArray = new JsonArray();
-        for (Map<String, Object> row : rows) {
-            JsonObject jsonObject = new JsonObject();
-            for (Map.Entry<String, Object> entry : row.entrySet()) {
-                jsonObject.addProperty(entry.getKey(), entry.getValue().toString());
-            }
-            jsonArray.add(jsonObject);
-        }
+        // JsonArray jsonArray = new JsonArray();
+        // for (Map<String, Object> row : rows) {
+        //     JsonObject jsonObject = new JsonObject();
+        //     for (Map.Entry<String, Object> entry : row.entrySet()) {
+        //         jsonObject.addProperty(entry.getKey(), entry.getValue().toString());
+        //     }
+        //     jsonArray.add(jsonObject);
+        // }
 
-        // Sérialiser le JsonArray en format JSON
-        Gson gson = new Gson();
-        String jsonOutput = gson.toJson(jsonArray);
-        System.out.println("Serialized JSON Array: " + jsonOutput);
+        // // Sérialiser le JsonArray en format JSON
+        // Gson gson = new Gson();
+        // String jsonOutput = gson.toJson(jsonArray);
+        // System.out.println("Serialized JSON Array: " + jsonOutput);
 
-        return jsonArray;
+        return rows;
     }
     
 }
