@@ -29,8 +29,8 @@ public class ParcelleController {
     }
 
     @GetMapping("/list")
-    public JsonArray getDataParcelle() {
-        return parcelleService.getDataParcelle();
+    public ResponseEntity<JsonArray> getDataParcelle() {
+        return new ResponseEntity<>(parcelleService.getDataParcelle(),HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
