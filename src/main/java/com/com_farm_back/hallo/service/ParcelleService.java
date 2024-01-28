@@ -36,37 +36,33 @@ public class ParcelleService {
         return parcelleRepository.save(parcelle);
     }
 
-    public Parcelle updateParcelle(int id, Parcelle parcelleDetails) throws Exception{
+    public Parcelle updateParcelle(int id, Parcelle parcelleDetails) throws Exception {
         Optional<Parcelle> existingParcelle = parcelleRepository.findById(id);
         if (existingParcelle.isPresent()) {
             Parcelle updatedParcelle = existingParcelle.get();
-
-            if(updatedParcelle.getId_terrain()!=0){}
-
-            if(updatedParcelle.getLongueur()!=0){
+    
+            if (parcelleDetails.getLongueur() != 0) {
                 updatedParcelle.setLongueur(parcelleDetails.getLongueur());
-            } 
-
-            if(updatedParcelle.getLargeur()!=0){
-            updatedParcelle.setLargeur(parcelleDetails.getLargeur());
             }
-
-            if(updatedParcelle.getRendement()!=0){
-            updatedParcelle.setRendement(parcelleDetails.getRendement());
+    
+            if (parcelleDetails.getLargeur() != 0) {
+                updatedParcelle.setLargeur(parcelleDetails.getLargeur());
             }
-
-            if(updatedParcelle.getCorbeille()!=0){
-            updatedParcelle.setCorbeille(parcelleDetails.getCorbeille());
+    
+            if (parcelleDetails.getRendement() != 0) {
+                updatedParcelle.setRendement(parcelleDetails.getRendement());
             }
-
+    
+            if (parcelleDetails.getCorbeille() != 0) {
+                updatedParcelle.setCorbeille(parcelleDetails.getCorbeille());
+            }
+    
             return parcelleRepository.save(updatedParcelle);
-
         } else {
-            
-            
             throw new Exception("Parcelle non trouvée avec l'ID : " + id);
         }
     }
+    
 
     public void deleteParcelle(int id) {
         parcelleRepository.deleteById(id);
