@@ -73,8 +73,6 @@ public class PlanteService {
             if (updatedPlante.getRendement() != 0) {
                 existingPlante.setRendement(updatedPlante.getRendement());
             }
-    
-            // Enregistrer et retourner la plante mise à jour
             return planteRepository.save(existingPlante);
         } else {
             // Gérer le cas où la plante n'est pas trouvée
