@@ -56,7 +56,7 @@ public class ParcelleController {
     @PutMapping("/{id}")
     public ResponseEntity<Parcelle> updateParcelle(@PathVariable("id") int id, @RequestBody Parcelle parcelleDetails) throws Exception{
         Parcelle updatedParcelle = parcelleService.updateParcelle(id, parcelleDetails);
-        return new ResponseEntity<>(updatedParcelle, HttpStatus.OK);
+        return ResponseEntity.ok(updatedParcelle);
     }
 
     @DeleteMapping("/{id}")
