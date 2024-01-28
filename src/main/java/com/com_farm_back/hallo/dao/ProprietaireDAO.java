@@ -20,7 +20,7 @@ public class ProprietaireDAO {
         if (mail == null || mail.isEmpty() || !mail.contains("@")) {
             throw new Exception("Invalid email");
         }
-        String sql = "SELECT * FROM proprietaire WHERE mail ='"+mail+"'";
+        String sql = "SELECT * FROM proprietaire WHERE mail ="+mail;
         System.out.println(sql);
         try {
             Proprietaire proprietaire = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Proprietaire.class));
