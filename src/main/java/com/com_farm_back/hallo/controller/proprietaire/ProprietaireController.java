@@ -34,6 +34,13 @@ public class ProprietaireController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/login")
+    public ResponseEntity<Proprietaire> Login(@RequestParam("mail") String mail,@RequestParam("mdp") String mdp) throws Exception{
+        Proprietaire proprietaire = proprietaireService.Login(mail, mdp);
+        return new ResponseEntity<>(proprietaire, HttpStatus.OK);
+    }
+
+
     @PostMapping
     public ResponseEntity<Proprietaire> createProprietaire(@RequestBody Proprietaire proprietaire) {
         Proprietaire createdProprietaire = proprietaireService.saveProprietaire(proprietaire);

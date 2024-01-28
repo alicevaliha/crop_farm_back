@@ -3,17 +3,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+
+import com.com_farm_back.hallo.dao.ProprietaireDAO;
 import com.com_farm_back.hallo.model.proprietaire.Proprietaire;
 import com.com_farm_back.hallo.repository.*;
 
 @Service
 public class ProprietaireService {
 
+    private final ProprietaireDAO dao;
     private final ProprietaireRepository proprietaireRepository;
 
     @Autowired
-    public ProprietaireService(ProprietaireRepository proprietaireRepository) {
+    public ProprietaireService(ProprietaireRepository proprietaireRepository,ProprietaireDAO dao) {
         this.proprietaireRepository = proprietaireRepository;
+        this.dao=dao;
     }
 
     public List<Proprietaire> getAllProprietaires() {
@@ -57,4 +61,9 @@ public class ProprietaireService {
     public void deleteProprietaire(int id) {
         proprietaireRepository.deleteById(id);
     }
+
+    public Proprietaire Login(String mail, String mdp) throws Exception {
+        return dao.Login(mail, mdp);
+    }
+
 }

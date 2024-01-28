@@ -3,6 +3,7 @@ com/com_farm_back/hallo/repository/PlanterRepository.class
 com/com_farm_back/hallo/repository/ProprietaireRepository.class
 com/com_farm_back/hallo/controller/proprietaire/ProprietaireController.class
 com/com_farm_back/hallo/controller/exception/Gestion_exception.class
+com/com_farm_back/hallo/dao/ProprietaireDAO.class
 com/com_farm_back/hallo/config/FireBaseConfig.class
 com/com_farm_back/hallo/model/dto/Categorie_cultureDTO.class
 com/com_farm_back/hallo/service/Categories_parcelleService.class

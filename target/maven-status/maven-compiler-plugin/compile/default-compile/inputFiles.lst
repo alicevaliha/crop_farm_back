@@ -13,6 +13,7 @@
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/service/Plante_serve.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/model/categorie/Categories_parcelle.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/service/PlanteService.java
+/Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/dao/ProprietaireDAO.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/dao/PlanterDAO.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/dao/Proprietaire_dao.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/controller/plante/PlanteController.java
