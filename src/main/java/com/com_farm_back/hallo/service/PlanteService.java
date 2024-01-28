@@ -39,9 +39,8 @@ public class PlanteService {
     
         if (optionalPlante.isPresent()) {
             Plante existingPlante = optionalPlante.get();
-            // Mettre à jour les champs de la plante existante avec les valeurs fournies
     
-            // Vérifier les champs mis à jour et les affecter à la plante existante
+            // Mise à jour des champs de la plante existante avec les valeurs fournies
             if (updatedPlante.getId_categorie_culture() != 0) {
                 existingPlante.setId_categorie_culture(updatedPlante.getId_categorie_culture());
             }
@@ -69,15 +68,19 @@ public class PlanteService {
             if (updatedPlante.getCorbeille() != 0) {
                 existingPlante.setCorbeille(updatedPlante.getCorbeille());
             }
-
+    
+            // Mise à jour du rendement
             if (updatedPlante.getRendement() != 0) {
                 existingPlante.setRendement(updatedPlante.getRendement());
             }
+    
+            // Enregistrer et retourner la plante mise à jour
             return planteRepository.save(existingPlante);
         } else {
             // Gérer le cas où la plante n'est pas trouvée
             throw new IllegalArgumentException("Plante not found with id: " + id);
         }
     }
+    
     
 }
