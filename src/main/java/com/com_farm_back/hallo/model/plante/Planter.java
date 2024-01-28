@@ -20,7 +20,8 @@ public class Planter {
     private int etat;
 
     
-
+    public Planter(){}
+    
     public Planter(int id_plantation, int id_parcelle, int id_plante, Timestamp dateaction, int etat) {
         setId_plantation(id_plantation);
         setId_parcelle(id_parcelle);
@@ -28,6 +29,7 @@ public class Planter {
         setDateaction(dateaction);
         setEtat(etat);
     }
+
     public int getId_plantation() {
         return id_plantation;
     }
