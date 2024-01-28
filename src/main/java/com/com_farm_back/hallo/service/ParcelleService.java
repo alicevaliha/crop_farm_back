@@ -67,7 +67,7 @@ public class ParcelleService {
         parcelleRepository.deleteById(id);
     }
 
-    public JsonArray getDataParcelle() {
+    public List<JsonArray> getDataParcelle() {
         return dao.getDataParcelle();
     } 
 }

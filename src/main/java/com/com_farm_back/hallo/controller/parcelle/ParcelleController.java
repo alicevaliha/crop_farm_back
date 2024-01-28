@@ -29,7 +29,7 @@ public class ParcelleController {
     }
 
     @GetMapping("/list")
-    public JsonArray getDataParcelle() {
+    public List<JsonArray> getDataParcelle() {
         return parcelleService.getDataParcelle();
     }
 
