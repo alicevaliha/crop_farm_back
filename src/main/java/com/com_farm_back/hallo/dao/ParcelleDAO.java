@@ -21,24 +21,23 @@ public class ParcelleDAO {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public List<JsonArray> getDataParcelle() {
+    public JsonArray getDataParcelle() {
         String sql = "SELECT * FROM v_all_concat";
         System.out.println(sql);
-
+    
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
-
-        // Construire la liste de JsonArray
-        List<JsonArray> jsonArrays = new ArrayList<>();
+    
+        // Construire le JSONArray
+        JsonArray jsonArray = new JsonArray();
         for (Map<String, Object> row : rows) {
-            JsonArray jsonArray = new JsonArray();
+            JsonObject jsonObject = new JsonObject();
             for (Map.Entry<String, Object> entry : row.entrySet()) {
-                JsonObject jsonObject = new JsonObject();
                 jsonObject.addProperty(entry.getKey(), entry.getValue().toString());
-                jsonArray.add(jsonObject);
             }
-            jsonArrays.add(jsonArray);
+            jsonArray.add(jsonObject);
         }
-
-        return jsonArrays;
+    
+        return jsonArray;
     }
+    
 }
