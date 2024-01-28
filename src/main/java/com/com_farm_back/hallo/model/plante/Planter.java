@@ -1,10 +1,10 @@
 package com.com_farm_back.hallo.model.plante;
 
-import com.google.cloud.Timestamp;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import java.sql.Timestamp;
 
 @Entity
 public class Planter {
@@ -21,7 +21,7 @@ public class Planter {
 
     
     public Planter(){}
-    
+
     public Planter(int id_plantation, int id_parcelle, int id_plante, Timestamp dateaction, int etat) {
         setId_plantation(id_plantation);
         setId_parcelle(id_parcelle);
