@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import java.util.List;
@@ -21,12 +23,12 @@ public class ParcelleDAO {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public JsonArray getDataParcelle() {
+   public JsonArray getDataParcelle() {
         String sql = "SELECT * FROM v_all_concat";
-        System.out.println(sql);
-    
+        System.out.println("Executing SQL query: " + sql);
+
         List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
-    
+
         // Construire le JSONArray
         JsonArray jsonArray = new JsonArray();
         for (Map<String, Object> row : rows) {
@@ -36,7 +38,12 @@ public class ParcelleDAO {
             }
             jsonArray.add(jsonObject);
         }
-    
+
+        // Sérialiser le JsonArray en format JSON
+        Gson gson = new Gson();
+        String jsonOutput = gson.toJson(jsonArray);
+        System.out.println("Serialized JSON Array: " + jsonOutput);
+
         return jsonArray;
     }
     
