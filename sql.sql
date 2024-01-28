@@ -84,22 +84,24 @@ create table categories_parcelle(
 --séparer en 2 tables recolte et achat
 
 --rendement en kg par metre carré
-create table rendement(
+-- create table rendement(
 
-    id_rendement serial primary key,
-    id_plante int,
-    rendement float,
-    FOREIGN KEY (id_plante)
-    REFERENCES plante(id_plante)
+--     id_rendement serial primary key,
+--     id_plante int,
+--     rendement float,
+--     daterendement timestamp,
+--     FOREIGN KEY (id_plante)
+--     REFERENCES plante(id_plante)
 
-);
+-- );
 
 create table planter (
 
     id_plantation serial primary key,
     id_parcelle int,
     id_plante int,
-    dateaction timestamp,  
+    dateaction timestamp,
+    etat int,  
     FOREIGN KEY(id_parcelle) 
     REFERENCES parcelle(id_parcelle),
     FOREIGN KEY (id_plante)
@@ -107,6 +109,7 @@ create table planter (
 
 );
 
+--int etat => 0 = non récolté , 1 = récolté
 
 create table recolte(
     id_recolte serial primary key,
@@ -173,6 +176,19 @@ GROUP BY
 
 --requête filtrage parcelle
 SELECT * FROM v_all_concat WHERE id_plantes LIKE '%2%';
+
+--objectif = view simulation 
+
+--view planter / plante
+create or replace view v_planter_plante as 
+select plt.id_plantation,plt.id_parcelle,p.id_plante,p.nom_plante,p.rendement,plt.dateaction
+from planter as plt 
+join plante as p on plt.id_plante=p.id_plante;
+
+create or replace view simulations as
+select v.id_plantation,p.id_parcelle,v.id_plante,v.nom_plante,v.rendement, (p.longueur*p.largeur) as surfacetotale, (p.longueur*p.largeur)*v.rendement as recolte,v.dateaction
+from v_planter_plante as v 
+join parcelle as p on v.id_parcelle=p.id_parcelle;
 
 select p.id_parcelle,p.longueur,p.largeur
 from parcelle as p
