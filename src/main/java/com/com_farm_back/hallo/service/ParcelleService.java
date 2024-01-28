@@ -43,17 +43,21 @@ public class ParcelleService {
 
             if(updatedParcelle.getId_terrain()!=0){}
 
-            if(updatedParcelle.getLongueur()!=0)
-            updatedParcelle.setLongueur(parcelleDetails.getLongueur());
+            if(updatedParcelle.getLongueur()!=0){
+                updatedParcelle.setLongueur(parcelleDetails.getLongueur());
+            } 
 
-            if(updatedParcelle.getLargeur()!=0)
+            if(updatedParcelle.getLargeur()!=0){
             updatedParcelle.setLargeur(parcelleDetails.getLargeur());
+            }
 
-            if(updatedParcelle.getRendement()!=0)
+            if(updatedParcelle.getRendement()!=0){
             updatedParcelle.setRendement(parcelleDetails.getRendement());
+            }
 
-            if(updatedParcelle.getCorbeille()!=0)
+            if(updatedParcelle.getCorbeille()!=0){
             updatedParcelle.setCorbeille(parcelleDetails.getCorbeille());
+            }
 
             return parcelleRepository.save(updatedParcelle);
 

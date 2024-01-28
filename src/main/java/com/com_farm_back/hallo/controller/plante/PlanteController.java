@@ -40,7 +40,7 @@ public class PlanteController {
     public ResponseEntity<Plante> createPlante(@RequestBody Plante plante) {
         Plante savedPlante = planteService.savePlante(plante);
         return new ResponseEntity<>(savedPlante, HttpStatus.CREATED);
-        
+
     }
 
     @PutMapping("/{id}")
@@ -48,7 +48,7 @@ public class PlanteController {
         if (plante.getId_plante() != id) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        Plante updatedPlante = planteService.updatePlante(plante);
+        Plante updatedPlante = planteService.updatePlante(id,plante);
         return updatedPlante != null ? new ResponseEntity<>(updatedPlante, HttpStatus.OK)
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }

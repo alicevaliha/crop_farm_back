@@ -34,15 +34,45 @@ public class PlanteService {
         planteRepository.deleteById(id);
     }
 
-    public Plante updatePlante(Plante plante) {
-        // Vérifie si la plante existe dans la base de données
-        Optional<Plante> existingPlante = planteRepository.findById(plante.getId_plante());
-        if (existingPlante.isPresent()) {
-            // Met à jour les détails de la plante existante
-            return planteRepository.save(plante);
+    public Plante updatePlante(int id, Plante updatedPlante) {
+        Optional<Plante> optionalPlante = planteRepository.findById(id);
+
+        if (optionalPlante.isPresent()) {
+            Plante existingPlante = optionalPlante.get();
+            // Mettre à jour les champs de la plante existante avec les valeurs fournies
+            if(existingPlante.getId_categorie_culture()!=0){
+            existingPlante.setId_categorie_culture(updatedPlante.getId_categorie_culture());
+            } 
+            
+            if(existingPlante.getNom_plante()!=null){
+            existingPlante.setNom_plante(updatedPlante.getNom_plante());
+            } 
+
+            if(existingPlante.getPrixachat()!=0){
+            existingPlante.setPrixachat(updatedPlante.getPrixachat());
+            } 
+
+            if(existingPlante.getPrixvente()!=0){
+            existingPlante.setPrixvente(updatedPlante.getPrixvente());
+            } 
+
+            if(existingPlante.getSprite_plante()!=null){
+            existingPlante.setSprite_plante(updatedPlante.getSprite_plante());
+            } 
+
+            if(existingPlante.getPlaceingamemaker()!=0){
+            existingPlante.setPlaceingamemaker(updatedPlante.getPlaceingamemaker());
+            } 
+
+            if(existingPlante.getCorbeille()!=0){
+            existingPlante.setCorbeille(updatedPlante.getCorbeille());
+            } 
+
+            // Enregistrer et retourner la plante mise à jour
+            return planteRepository.save(existingPlante);
         } else {
-            // Si la plante n'existe pas, vous pouvez choisir de lever une exception ou de retourner null
-            return null;
+            // Gérer le cas où la plante n'est pas trouvée
+            throw new IllegalArgumentException("Plante not found with id: " + id);
         }
     }
 }
