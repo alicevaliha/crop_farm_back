@@ -36,38 +36,40 @@ public class PlanteService {
 
     public Plante updatePlante(int id, Plante updatedPlante) {
         Optional<Plante> optionalPlante = planteRepository.findById(id);
-
+    
         if (optionalPlante.isPresent()) {
             Plante existingPlante = optionalPlante.get();
             // Mettre à jour les champs de la plante existante avec les valeurs fournies
-            if(existingPlante.getId_categorie_culture()!=0){
-            existingPlante.setId_categorie_culture(updatedPlante.getId_categorie_culture());
-            } 
-            
-            if(existingPlante.getNom_plante()!=null){
-            existingPlante.setNom_plante(updatedPlante.getNom_plante());
-            } 
-
-            if(existingPlante.getPrixachat()!=0){
-            existingPlante.setPrixachat(updatedPlante.getPrixachat());
-            } 
-
-            if(existingPlante.getPrixvente()!=0){
-            existingPlante.setPrixvente(updatedPlante.getPrixvente());
-            } 
-
-            if(existingPlante.getSprite_plante()!=null){
-            existingPlante.setSprite_plante(updatedPlante.getSprite_plante());
-            } 
-
-            if(existingPlante.getPlaceingamemaker()!=0){
-            existingPlante.setPlaceingamemaker(updatedPlante.getPlaceingamemaker());
-            } 
-
-            if(existingPlante.getCorbeille()!=0){
-            existingPlante.setCorbeille(updatedPlante.getCorbeille());
-            } 
-
+    
+            // Vérifier les champs mis à jour et les affecter à la plante existante
+            if (updatedPlante.getId_categorie_culture() != 0) {
+                existingPlante.setId_categorie_culture(updatedPlante.getId_categorie_culture());
+            }
+    
+            if (updatedPlante.getNom_plante() != null) {
+                existingPlante.setNom_plante(updatedPlante.getNom_plante());
+            }
+    
+            if (updatedPlante.getPrixachat() != 0) {
+                existingPlante.setPrixachat(updatedPlante.getPrixachat());
+            }
+    
+            if (updatedPlante.getPrixvente() != 0) {
+                existingPlante.setPrixvente(updatedPlante.getPrixvente());
+            }
+    
+            if (updatedPlante.getSprite_plante() != null) {
+                existingPlante.setSprite_plante(updatedPlante.getSprite_plante());
+            }
+    
+            if (updatedPlante.getPlaceingamemaker() != 0) {
+                existingPlante.setPlaceingamemaker(updatedPlante.getPlaceingamemaker());
+            }
+    
+            if (updatedPlante.getCorbeille() != 0) {
+                existingPlante.setCorbeille(updatedPlante.getCorbeille());
+            }
+    
             // Enregistrer et retourner la plante mise à jour
             return planteRepository.save(existingPlante);
         } else {
@@ -75,4 +77,5 @@ public class PlanteService {
             throw new IllegalArgumentException("Plante not found with id: " + id);
         }
     }
+    
 }
