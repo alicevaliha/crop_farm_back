@@ -1,4 +1,5 @@
 package com.com_farm_back.hallo.controller.terrain;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.com_farm_back.hallo.model.terrain.Terrain;
 import com.com_farm_back.hallo.service.TerrainService;
@@ -29,29 +29,27 @@ public class TerrainController {
     }
 
     @GetMapping("/proprietaire/{id}")
-    public List<Terrain> getTerrainsByProprietaire(@PathVariable("id") int id) {
-        return terrainService.getTerrainsByProprietaire(id);
+    public ResponseEntity<List<Terrain>> getTerrainsByProprietaire(@PathVariable("id") int id) {
+        List<Terrain> terrains = terrainService.getTerrainsByProprietaire(id);
+        return terrains.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(terrains);
     }
 
-    @GetMapping("/proprietaire/unvalid/{id}")
-    public List<Terrain> getTerrainsByProprietaireUnvalid(@PathVariable("id") int id) {
-        return terrainService.getTerrainsByProprietaireUnvalid(id);
+    @GetMapping("/proprietaire/inactive/{id}")
+    public ResponseEntity<List<Terrain>> getTerrainsByProprietaireUnvalid(@PathVariable("id") int id) {
+        List<Terrain> terrains = terrainService.getTerrainsByProprietaireUnvalid(id);
+        return terrains.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(terrains);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Terrain> getTerrainById(@PathVariable("id") int id) {
         Terrain terrain = terrainService.getTerrainById(id);
-        if (terrain != null) {
-            return new ResponseEntity<>(terrain, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return terrain != null ? ResponseEntity.ok(terrain) : ResponseEntity.notFound().build();
     }
 
     @GetMapping("/active")
     public ResponseEntity<List<Terrain>> getNonDeletedTerrains() {
         List<Terrain> terrains = terrainService.getNonDeletedTerrains();
-        return new ResponseEntity<>(terrains, HttpStatus.OK);
+        return terrains.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(terrains);
     }
 
     @PostMapping
@@ -64,8 +62,9 @@ public class TerrainController {
             return new ResponseEntity<>(createdTerrain, HttpStatus.CREATED);
         }
     }
+
     @PutMapping("/{id}")
-    public ResponseEntity<Terrain> updateTerrain(@PathVariable(value = "id") int id, @RequestBody Terrain terrainDetails)throws Exception {
+    public ResponseEntity<Terrain> updateTerrain(@PathVariable(value = "id") int id, @RequestBody Terrain terrainDetails) throws Exception {
         Terrain updatedTerrain = terrainService.updateTerrain(id, terrainDetails);
         return ResponseEntity.ok(updatedTerrain);
     }
@@ -75,5 +74,4 @@ public class TerrainController {
         terrainService.deleteTerrain(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-    
 }

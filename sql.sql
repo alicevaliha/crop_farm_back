@@ -193,7 +193,7 @@ from planter as plt
 join plante as p on plt.id_plante=p.id_plante;
 
 create or replace view simulations as
-select v.id_plantation,p.id_parcelle,v.id_plante,v.nom_plante,v.rendement, (p.longueur*p.largeur) as surfacetotale, (p.longueur*p.largeur)*v.rendement as recolte,v.dateaction
+select v.id_plantation,p.id_parcelle,v.id_plante,v.nom_plante,v.rendement, (p.longueur*p.largeur) as surfacetotale, (p.longueur*p.largeur)*v.rendement as recolte,v.dateaction,p.id_terrain
 from v_planter_plante as v 
 join parcelle as p on v.id_parcelle=p.id_parcelle;
 
