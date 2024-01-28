@@ -36,7 +36,7 @@ public class PlanteService {
 
     public Plante updatePlante(int id, Plante updatedPlante) {
         Optional<Plante> optionalPlante = planteRepository.findById(id);
-    
+        System.out.println("modifier la plante "+id);
         if (optionalPlante.isPresent()) {
             Plante existingPlante = optionalPlante.get();
     
