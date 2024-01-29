@@ -37,7 +37,7 @@ public class PlanteDAO {
 
     public List<Map<String, Object>> graphPlante(int idProprietaire) {
 
-        String sql = "SELECT nom_plante, COUNT(*) AS nombre_utilisations,ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM vue_planter_plante_parcelle_terrain WHERE id_proprietaire = ";
+        String sql = "SELECT nom_plante,ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM vue_planter_plante_parcelle_terrain WHERE id_proprietaire = ";
         sql += idProprietaire +"), 2) AS pourcentage_utilisation FROM vue_planter_plante_parcelle_terrain WHERE id_proprietaire =";
         sql+=idProprietaire+" GROUP BY nom_plante";
         System.out.println(sql);
