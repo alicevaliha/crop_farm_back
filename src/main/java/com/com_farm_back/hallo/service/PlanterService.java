@@ -44,6 +44,8 @@ public class PlanterService {
     public void recolter(int idplantation,int rendement,int idparcelle){
         dao.recolter(idplantation, rendement, idparcelle);
     }
-    
+    public List<Map<String, Object>> getRecoltes(int idProprietaire) {
+        return dao.getRecoltes(idProprietaire);
+    }
 
 }

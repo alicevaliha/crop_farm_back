@@ -38,6 +38,14 @@ public class PlanterController {
         planterService.recolter(idplantation, rendement, idparcelle);
         return ResponseEntity.status(HttpStatus.OK).body("Recolte effectuee avec succes");
     }
+
+    @GetMapping("/recoltes/{id}")
+    public ResponseEntity< List<Map<String, Object>>> getStatsNb(@PathVariable("id") int id) {
+        List<Map<String, Object>> simus = planterService.getRecoltes(id);
+        return new ResponseEntity<>(simus, HttpStatus.OK);
+    }
+    // public List<Map<String, Object>> getRecoltes(int idProprietaire) {
+
     
 
     @GetMapping("/{id}")

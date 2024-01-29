@@ -98,4 +98,8 @@ public class TerrainService {
         return dao.getstatTerrain(idProprietaire);
     }
 
+    public List<Map<String, Object>> getstatTerrainNb(int idProprietaire) {
+        return dao.getstatTerrainNb(idProprietaire);
+    } 
+
 }

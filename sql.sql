@@ -210,7 +210,22 @@ join v_surface as s on p.id_terrain=s.id_terrain;
 --view pour totale de terrain possèdé
 
 create or replace view v_count_terrain as 
-select count(id_terrain) as nbterrain, id_proprietaire from terrain group by id_proprietaire;
+select count(id_terrain) as nbterrain, id_proprietaire from terrain where corbeille=0 group by id_proprietaire;
+
+--view total recolte effectués
+
+create or replace view v_recoltes as 
+select sum(rendement) as recoltes, id_parcelle from recolte group by id_parcelle;
+
+create or replace view v_recoltes_proprio as 
+select p.id_parcelle,p.idproprietaire,r.recoltes,p.nom
+from v_parcelle_proprietaire as p
+join v_recoltes as r on p.id_parcelle = r.id_parcelle;
+
+create or replace view v_total_recolte as
+select sum(recoltes) as recoltes , idproprietaire from v_recoltes_proprio group by idproprietaire;
+
+-----
 
 select p.id_parcelle,p.longueur,p.largeur
 from parcelle as p

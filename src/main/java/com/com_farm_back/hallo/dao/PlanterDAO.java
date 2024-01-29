@@ -46,5 +46,13 @@ public class PlanterDAO {
         // return rows;
 
     }
+
+    public List<Map<String, Object>> getRecoltes(int idProprietaire) {
+        String sql = "select * from v_total_recolte where idproprietaire="+ idProprietaire;
+        System.out.println(sql);
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+        
+        return rows;
+    }
     
 }

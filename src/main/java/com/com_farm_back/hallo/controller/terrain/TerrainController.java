@@ -60,6 +60,12 @@ public class TerrainController {
         return new ResponseEntity<>(simus, HttpStatus.OK);
     }
 
+    @GetMapping("/nombreterrains/{id}")
+    public ResponseEntity< List<Map<String, Object>>> getStatsNb(@PathVariable("id") int id) {
+        List<Map<String, Object>> simus = terrainService.getstatTerrainNb(id);
+        return new ResponseEntity<>(simus, HttpStatus.OK);
+    }
+
     @GetMapping("/active")
     public ResponseEntity<List<Terrain>> getNonDeletedTerrains() {
         List<Terrain> terrains = terrainService.getNonDeletedTerrains();
