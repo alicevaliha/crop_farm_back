@@ -21,12 +21,14 @@ public class ProprietaireController {
         this.proprietaireService = proprietaireService;
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping
     public ResponseEntity<List<Proprietaire>> getAllProprietaires() {
         List<Proprietaire> proprietaires = proprietaireService.getAllProprietaires();
         return new ResponseEntity<>(proprietaires, HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/{id}")
     public ResponseEntity<Proprietaire> getProprietaireById(@PathVariable("id") int id) {
         Optional<Proprietaire> proprietaire = proprietaireService.getProprietaireById(id);
@@ -34,6 +36,7 @@ public class ProprietaireController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/login")
     public ResponseEntity<Proprietaire> Login(@RequestParam("mail") String mail,@RequestParam("mdp") String mdp) throws Exception{
         Proprietaire proprietaire = proprietaireService.Login(mail, mdp);
@@ -41,18 +44,21 @@ public class ProprietaireController {
     }
 
 
+    @CrossOrigin(origins = "*")
     @PostMapping
     public ResponseEntity<Proprietaire> createProprietaire(@RequestBody Proprietaire proprietaire) {
         Proprietaire createdProprietaire = proprietaireService.saveProprietaire(proprietaire);
         return new ResponseEntity<>(createdProprietaire, HttpStatus.CREATED);
     }
 
+    @CrossOrigin(origins = "*")
     @PutMapping("/{id}")
     public ResponseEntity<Proprietaire> updateProprietaire(@PathVariable("id") int id, @RequestBody Proprietaire proprietaireDetails)throws Exception {
         Proprietaire updatedProprietaire = proprietaireService.updateProprietaire(id, proprietaireDetails);
         return new ResponseEntity<>(updatedProprietaire, HttpStatus.OK);
     }
 
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteProprietaire(@PathVariable("id") int id) {
         proprietaireService.deleteProprietaire(id);

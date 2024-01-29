@@ -16,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,6 +36,7 @@ public class Categorie_culture_controller {
         this.service = servivce;
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/cultures")
     public ResponseEntity<Object> getCategorie_cultures() {
         try {
@@ -46,6 +48,8 @@ public class Categorie_culture_controller {
             return Gestion_exception.generateResponse(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR, "Erreur survenue lors de la récupération des Categorie_cultures");
         }
     }
+
+    @CrossOrigin(origins = "*")
     @GetMapping("/culture/{id}")
     public ResponseEntity<Object> getCategorie_culture_by_id(@PathVariable("id") String id) throws Exception {
         try {
@@ -59,7 +63,7 @@ public class Categorie_culture_controller {
         }
     }
 
-
+    @CrossOrigin(origins = "*")
     @PostMapping("/insert")
     public ResponseEntity<Object> insertCategorie_culture(@RequestBody Categorie_cultureDTO categorie) throws Exception
     {
@@ -71,6 +75,7 @@ public class Categorie_culture_controller {
         }
     }
 
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Object> deleteCategorieCulture(@PathVariable("id") String id )throws Exception
     {

@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,6 +35,8 @@ public class Proprietaire_controller {
     {
         this.service = servivce;
     }
+
+    @CrossOrigin(origins = "*")
     @GetMapping("/proprietaires")
     public ResponseEntity<Object> get_all_proprietaires() {
         try {
@@ -45,6 +48,8 @@ public class Proprietaire_controller {
             return Gestion_exception.generateResponse(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR, "Erreur survenue lors de la récupération des propriétaires");
         }
     }
+
+    @CrossOrigin(origins = "*")
     @PostMapping("/login")
     public ResponseEntity<Object> seLogin(@RequestBody ProprietaireDTO proprietaire) throws Exception
     {
@@ -55,6 +60,8 @@ public class Proprietaire_controller {
             return Gestion_exception.generateResponse(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR,"error survenue lors de proprietaire selogin");
         }
     }
+
+    @CrossOrigin(origins = "*")
     @PostMapping("/inscrire")
     public ResponseEntity<Object> inscrire(@RequestBody ProprietaireDTO proprietaire) throws Exception
     {
@@ -77,7 +84,8 @@ public class Proprietaire_controller {
     }
     
     // --------------------------------------------------------------------
-     @PostMapping("messagerie")
+    @CrossOrigin(origins = "*") 
+    @PostMapping("messagerie")
     public ResponseEntity<Object> nouveauMessage(@RequestBody Messagerie messagerie) {
         try {
             
@@ -92,6 +100,7 @@ public class Proprietaire_controller {
         }
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping("discussions")
     public ResponseEntity<Object> discussions(@RequestBody Messagerie messagerie) 
     {
