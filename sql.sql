@@ -210,7 +210,7 @@ join v_surface as s on p.id_terrain=s.id_terrain;
 --view pour totale de terrain possèdé
 
 create or replace view v_count_terrain as 
-select count(id_terrain) as nbterrain, id_proprietaire from terrain where corbeille=0 group by id_proprietaire;
+select count(id_terrain) as nbterrain, id_proprietaire from terrain where corbeille=1 group by id_proprietaire;
 
 --view total recolte effectués
 
@@ -243,3 +243,76 @@ WHERE
     id_proprietaire = 1
 GROUP BY 
     nom_plante;
+
+--stats de recoltes 
+
+CREATE OR REPLACE VIEW vue_recolte_planter_parcelle_plante AS
+SELECT 
+    r.id_recolte, 
+    p.id_plantation, 
+    p.id_parcelle AS id_parcelle_plantation, 
+    pl.id_plante, 
+    pa.id_parcelle AS id_parcelle_recolte,
+    pa.rendement AS rendement_parcelle,
+    r.dateaction
+FROM 
+    recolte r
+JOIN 
+    planter p ON r.id_plantation = p.id_plantation
+JOIN 
+    parcelle pa ON r.id_parcelle = pa.id_parcelle
+JOIN
+    plante pl ON p.id_plante = pl.id_plante;
+
+
+CREATE VIEW v_combine_recolte_proprietaire AS
+SELECT 
+    r.id_recolte, 
+    r.rendement_parcelle AS rendement, 
+    r.dateaction, 
+    p.idproprietaire, 
+    p.nom
+FROM 
+    vue_recolte_planter_parcelle_plante r
+JOIN 
+    v_parcelle_proprietaire p ON r.id_parcelle_recolte = p.id_parcelle;
+
+-----
+
+SELECT 
+    TO_CHAR(DATE_TRUNC('month', dateaction), 'Month') AS mois,
+    SUM(rendement) AS total_recolte
+FROM 
+    v_combine_recolte_proprietaire
+WHERE 
+    idproprietaire = 4
+GROUP BY 
+    DATE_TRUNC('month', dateaction)
+ORDER BY 
+    DATE_TRUNC('month', dateaction);
+
+
+WITH all_month AS (
+    SELECT generate_series(
+        DATE_TRUNC('year', CURRENT_DATE),
+        DATE_TRUNC('year', CURRENT_DATE) + INTERVAL '1 year' - INTERVAL '1 day',
+        INTERVAL '1 month'
+    ) AS month
+)
+SELECT 
+    TO_CHAR(am.month, 'Month') AS mois,
+    COALESCE(SUM(v.rendement), 0) AS total_recolte
+FROM 
+    all_month am
+LEFT JOIN 
+    v_combine_recolte_proprietaire v ON DATE_TRUNC('month', v.dateaction) = am.month
+    AND v.idproprietaire = 1
+GROUP BY 
+    am.month
+ORDER BY 
+    am.month;
+
+
+
+
+

@@ -100,5 +100,8 @@ public class PlanteService {
         return dao.graphPlante(idProprietaire);
     }
 
+    public List<Map<String, Object>> statRecolte(int idProprietaire) {
+        return dao.statRecolte(idProprietaire);
+    }
     
 }

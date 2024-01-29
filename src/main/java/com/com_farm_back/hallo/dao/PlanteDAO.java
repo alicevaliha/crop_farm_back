@@ -47,5 +47,19 @@ public class PlanteDAO {
     
     }
 
+    public List<Map<String, Object>> statRecolte(int idProprietaire) {
+
+        String sql = "WITH all_month AS (SELECT generate_series(DATE_TRUNC('year', CURRENT_DATE), DATE_TRUNC('year', CURRENT_DATE) + INTERVAL '1 year' - INTERVAL '1 day', INTERVAL '1 month' ) AS month ) SELECT TO_CHAR(am.month, 'Month') AS mois, COALESCE(SUM(v.rendement), 0) AS total_recolte FROM  all_month am LEFT JOIN ";
+        sql+=" v_combine_recolte_proprietaire v ON DATE_TRUNC('month', v.dateaction) = am.month AND v.idproprietaire =";
+        sql+=idProprietaire;
+        sql+=" GROUP BY  am.month ORDER BY am.month";
+
+        
+        System.out.println(sql);
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+        
+        return rows;
+    }
+
     
 }

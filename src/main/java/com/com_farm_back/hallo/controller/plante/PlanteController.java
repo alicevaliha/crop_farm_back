@@ -43,6 +43,12 @@ public class PlanteController {
         return new ResponseEntity<>(simus, HttpStatus.OK);
     }
 
+    @GetMapping("/statrecoltes/{id}")
+    public ResponseEntity< List<Map<String, Object>>> getStatRecoltes(@PathVariable("id") int id) {
+        List<Map<String, Object>> simus = planteService.statRecolte(id);
+        return new ResponseEntity<>(simus, HttpStatus.OK);
+    }
+
     @GetMapping("/categories/{id}")
     public ResponseEntity<List<Plante>> getPlanteByCategorie(@PathVariable("id") Integer id) {
         List<Plante> plantes = planteService.getPlantesbycategorie(id);

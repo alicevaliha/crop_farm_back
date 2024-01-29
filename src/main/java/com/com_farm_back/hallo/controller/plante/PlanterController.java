@@ -46,6 +46,7 @@ public class PlanterController {
     }
     // public List<Map<String, Object>> getRecoltes(int idProprietaire) {
 
+   
     
 
     @GetMapping("/{id}")
