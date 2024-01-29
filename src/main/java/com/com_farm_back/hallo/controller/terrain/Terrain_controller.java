@@ -55,7 +55,7 @@ public class Terrain_controller {
 //        }
 //    }
 
-    @CrossOrigin(origins = "*")
+    
    @PutMapping("/{id}")
     public ResponseEntity<Object> validationTerrain(@PathVariable("id") String id) throws Exception{
         System.out.println("id_terrain---"+id);
@@ -82,7 +82,7 @@ public class Terrain_controller {
     //     }
     // }
 
-    @CrossOrigin(origins = "*")
+    
     @GetMapping("/{id}")
     public ResponseEntity<Object> getTerrainById(@PathVariable("id") String id) throws Exception{
         try {
@@ -95,7 +95,7 @@ public class Terrain_controller {
         }
     }
 
-    @CrossOrigin(origins = "*")
+    
     @DeleteMapping("{idterrain}")
     public ResponseEntity<Object> deleteterrain(@PathVariable String idterrain)throws Exception{
         
@@ -107,7 +107,7 @@ public class Terrain_controller {
         }
     } 
 
-    @CrossOrigin(origins = "*")
+    
     @PutMapping("description")
     public ResponseEntity<Object> updateTerrainDesc(@RequestBody TerrainDTO terrain)throws Exception{
         try {
@@ -118,7 +118,7 @@ public class Terrain_controller {
         }
     }
 
-    @CrossOrigin(origins = "*")
+    
     @PutMapping("/surface")
     public ResponseEntity<Object> updateTerrainSurface(@RequestBody TerrainDTO terrain)throws Exception{
         try {
@@ -140,7 +140,7 @@ public class Terrain_controller {
     //     }
     // }
 
-    @CrossOrigin(origins = "*")
+    
     @DeleteMapping("/photo")
     public ResponseEntity<Object> deletepicture(@RequestBody TerrainDTO terrain)throws Exception{     
         try {
@@ -151,7 +151,7 @@ public class Terrain_controller {
         }
     } 
 
-    @CrossOrigin(origins = "*")
+    
     @PostMapping("/photo")
     public ResponseEntity<Object> insertpicture(@RequestBody TerrainDTO terrain)throws Exception {
         try {

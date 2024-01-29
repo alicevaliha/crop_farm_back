@@ -36,7 +36,7 @@ public class Proprietaire_controller {
         this.service = servivce;
     }
 
-    @CrossOrigin(origins = "*")
+     
     @GetMapping("/proprietaires")
     public ResponseEntity<Object> get_all_proprietaires() {
         try {
@@ -49,7 +49,7 @@ public class Proprietaire_controller {
         }
     }
 
-    @CrossOrigin(origins = "*")
+     
     @PostMapping("/login")
     public ResponseEntity<Object> seLogin(@RequestBody ProprietaireDTO proprietaire) throws Exception
     {
@@ -61,7 +61,7 @@ public class Proprietaire_controller {
         }
     }
 
-    @CrossOrigin(origins = "*")
+     
     @PostMapping("/inscrire")
     public ResponseEntity<Object> inscrire(@RequestBody ProprietaireDTO proprietaire) throws Exception
     {
@@ -84,7 +84,7 @@ public class Proprietaire_controller {
     }
     
     // --------------------------------------------------------------------
-    @CrossOrigin(origins = "*") 
+      
     @PostMapping("messagerie")
     public ResponseEntity<Object> nouveauMessage(@RequestBody Messagerie messagerie) {
         try {
@@ -100,7 +100,7 @@ public class Proprietaire_controller {
         }
     }
 
-    @CrossOrigin(origins = "*")
+     
     @PostMapping("discussions")
     public ResponseEntity<Object> discussions(@RequestBody Messagerie messagerie) 
     {

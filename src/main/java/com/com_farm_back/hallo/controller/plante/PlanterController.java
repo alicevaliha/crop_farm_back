@@ -16,21 +16,21 @@ public class PlanterController {
     @Autowired
     private PlanterService planterService;
 
-    @CrossOrigin(origins = "*")
+   
     @GetMapping
     public ResponseEntity<List<Planter>> getAllPlanters() {
         List<Planter> planters = planterService.getAllPlanters();
         return new ResponseEntity<>(planters, HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "*")
+   
     @GetMapping("/simulations")
     public ResponseEntity< List<Map<String, Object>>> getAllSimulations() {
         List<Map<String, Object>> simus = planterService.getSimulation();
         return new ResponseEntity<>(simus, HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "*")
+   
     @PostMapping("/recolter")
     public ResponseEntity<String> recolter(
             @RequestParam int idplantation,
@@ -41,7 +41,7 @@ public class PlanterController {
         return ResponseEntity.status(HttpStatus.OK).body("Recolte effectuee avec succes");
     }
 
-    @CrossOrigin(origins = "*")
+   
     @GetMapping("/recoltes/{id}")
     public ResponseEntity< List<Map<String, Object>>> getStatsNb(@PathVariable("id") int id) {
         List<Map<String, Object>> simus = planterService.getRecoltes(id);
@@ -51,21 +51,21 @@ public class PlanterController {
 
    
     
-    @CrossOrigin(origins = "*")
+   
     @GetMapping("/{id}")
     public ResponseEntity<Planter> getPlanterById(@PathVariable("id") int id) {
         Planter planter = planterService.getPlanterById(id);
         return new ResponseEntity<>(planter, planter != null ? HttpStatus.OK : HttpStatus.NOT_FOUND);
     }
 
-    @CrossOrigin(origins = "*")
+   
     @PostMapping
     public ResponseEntity<Planter> savePlanter(@RequestBody Planter planter) {
         Planter savedPlanter = planterService.savePlanter(planter);
         return new ResponseEntity<>(savedPlanter, HttpStatus.CREATED);
     }
 
-    @CrossOrigin(origins = "*")
+   
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePlanter(@PathVariable("id") int id) {
         planterService.deletePlanter(id);

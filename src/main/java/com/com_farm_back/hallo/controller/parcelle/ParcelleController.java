@@ -23,34 +23,34 @@ public class ParcelleController {
         this.parcelleService = parcelleService;
     }
 
-    @CrossOrigin(origins = "*")
+     
     @GetMapping
     public ResponseEntity<List<Parcelle>> getAllParcelles() {
         List<Parcelle> parcelles = parcelleService.getAllParcelles();
         return new ResponseEntity<>(parcelles, HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "*")
+     
     @GetMapping("/list")
     public ResponseEntity<List<Map<String, Object>> > getDataParcelle() {
         return new ResponseEntity<>(parcelleService.getDataParcelle(),HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "*")
+     
     @GetMapping("/terrains/{id}")
     public ResponseEntity<List<Map<String, Object>>> getParcelleByTerrain(@PathVariable("id") int id) {
         // List<Parcelle> parcelles = parcelleService.getParcelleByTerrain(id);
         return new ResponseEntity<>(parcelleService.getParcelleByTerrain(id),HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "*")
+     
     @GetMapping("/proprietaires/{id}")
     public ResponseEntity<List<Map<String, Object>>> getParcelleByProprietaire(@PathVariable("id") int id) {
         // List<Parcelle> parcelles = parcelleService.getParcelleByProprietaire(id);
         return new ResponseEntity<>(parcelleService.getParcelleByProprietaire(id),HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "*")
+     
     @GetMapping("/{id}")
     public ResponseEntity<Parcelle> getParcelleById(@PathVariable("id") int id) {
         Optional<Parcelle> parcelle = parcelleService.getParcelleById(id);
@@ -58,21 +58,21 @@ public class ParcelleController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @CrossOrigin(origins = "*")
+     
     @PostMapping
     public ResponseEntity<Parcelle> createParcelle(@RequestBody Parcelle parcelle) {
         Parcelle createdParcelle = parcelleService.saveParcelle(parcelle);
         return new ResponseEntity<>(createdParcelle, HttpStatus.CREATED);
     }
 
-    @CrossOrigin(origins = "*")
+     
     @PutMapping("/{id}")
     public ResponseEntity<Parcelle> updateParcelle(@PathVariable("id") int id, @RequestBody Parcelle parcelleDetails) throws Exception{
         Parcelle updatedParcelle = parcelleService.updateParcelle(id, parcelleDetails);
         return ResponseEntity.ok(updatedParcelle);
     }
 
-    @CrossOrigin(origins = "*")
+     
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteParcelle(@PathVariable("id") int id) {
         parcelleService.deleteParcelle(id);

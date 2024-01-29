@@ -36,7 +36,7 @@ public class Categorie_culture_controller {
         this.service = servivce;
     }
 
-    @CrossOrigin(origins = "*")
+    
     @GetMapping("/cultures")
     public ResponseEntity<Object> getCategorie_cultures() {
         try {
@@ -49,7 +49,7 @@ public class Categorie_culture_controller {
         }
     }
 
-    @CrossOrigin(origins = "*")
+    
     @GetMapping("/culture/{id}")
     public ResponseEntity<Object> getCategorie_culture_by_id(@PathVariable("id") String id) throws Exception {
         try {
@@ -63,7 +63,7 @@ public class Categorie_culture_controller {
         }
     }
 
-    @CrossOrigin(origins = "*")
+    
     @PostMapping("/insert")
     public ResponseEntity<Object> insertCategorie_culture(@RequestBody Categorie_cultureDTO categorie) throws Exception
     {
@@ -75,7 +75,7 @@ public class Categorie_culture_controller {
         }
     }
 
-    @CrossOrigin(origins = "*")
+    
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Object> deleteCategorieCulture(@PathVariable("id") String id )throws Exception
     {

@@ -17,7 +17,7 @@ public class PlanteController {
     @Autowired
     private PlanteService planteService;
 
-    @CrossOrigin(origins = "*")
+    
     @GetMapping
     public ResponseEntity<List<Plante>> getAllPlantes() {
         List<Plante> plantes = planteService.getAllPlantes();
@@ -25,14 +25,14 @@ public class PlanteController {
     }
 
 
-    @CrossOrigin(origins = "*")
+    
     @GetMapping("/active")
     public ResponseEntity<List<Plante>> getNonDeletedPlantes() {
         List<Plante> plantes = planteService.getAllPlantesWithCorbeilleEqualsToZero();
         return new ResponseEntity<>(plantes, HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "*")
+    
     @GetMapping("/{id}")
     public ResponseEntity<Plante> getPlanteById(@PathVariable("id") Integer id) {
         Optional<Plante> plante = planteService.getPlanteById(id);
@@ -40,28 +40,28 @@ public class PlanteController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @CrossOrigin(origins = "*")
+    
     @GetMapping("/graphdara/{id}")
     public ResponseEntity< List<Map<String, Object>>> graphPlante(@PathVariable("id") int id) {
         List<Map<String, Object>> simus = planteService.graphPlante(id);
         return new ResponseEntity<>(simus, HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "*")
+    
     @GetMapping("/statrecoltes/{id}")
     public ResponseEntity< List<Map<String, Object>>> getStatRecoltes(@PathVariable("id") int id) {
         List<Map<String, Object>> simus = planteService.statRecolte(id);
         return new ResponseEntity<>(simus, HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "*")
+    
     @GetMapping("/categories/{id}")
     public ResponseEntity<List<Plante>> getPlanteByCategorie(@PathVariable("id") Integer id) {
         List<Plante> plantes = planteService.getPlantesbycategorie(id);
         return new ResponseEntity<>(plantes, HttpStatus.OK);
     }
 
-    @CrossOrigin(origins = "*")
+    
     @PostMapping
     public ResponseEntity<Plante> createPlante(@RequestBody Plante plante) {
         Plante savedPlante = planteService.savePlante(plante);
@@ -69,7 +69,7 @@ public class PlanteController {
 
     }
 
-    @CrossOrigin(origins = "*")
+    
     @PutMapping("/{id}")
     public ResponseEntity<Plante> updatePlante(@PathVariable("id") Integer id, @RequestBody Plante plante) {
         Plante updatedPlante = planteService.updatePlante(id,plante);
@@ -77,7 +77,7 @@ public class PlanteController {
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @CrossOrigin(origins = "*")
+    
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePlante(@PathVariable("id") Integer id) {
         planteService.deletePlante(id);

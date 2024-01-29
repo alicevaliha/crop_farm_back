@@ -26,7 +26,7 @@ public class Parcelle_controller {
         this.service = servivce;
     }
 
-    @CrossOrigin(origins = "*")
+    
     @GetMapping("/get")
     public List<Parcelle> get_all_Parcelles() {
         List<Parcelle> list_Parcelles = null;
@@ -41,7 +41,7 @@ public class Parcelle_controller {
         return list_Parcelles;
     }
 
-    @CrossOrigin(origins = "*")
+    
     @PostMapping("/insert")
     public void insertParcelle(@RequestParam int idterrain,@RequestParam double longueur,@RequestParam double largeur,@RequestParam double rendement) throws Exception
     {
@@ -49,31 +49,31 @@ public class Parcelle_controller {
         
     }
 
-    @CrossOrigin(origins = "*")
+    
     @GetMapping("/getById")
     public Parcelle getParcelleByid(@RequestParam String id) {
         return service.getParcelleById(id);
     }
 
-    @CrossOrigin(origins = "*")
+    
     @GetMapping("/getByTerrain")
     public List<Parcelle> getByTerrain(@RequestParam String idterrain) {
         return service.getParcellesByTerrain(idterrain);
     }
 
-    @CrossOrigin(origins = "*")
+    
     @PostMapping("/updateSurface")
     public void updateSurface(@RequestParam int idparcelle,@RequestParam double longueur,@RequestParam double largeur)throws Exception{
         service.updateSurface(idparcelle, longueur, largeur);
     }
 
-    @CrossOrigin(origins = "*")
+    
     @PostMapping("/updateRendement")
     public void updateSurface(@RequestParam int id,@RequestParam double rendement)throws Exception{
         service.updateRendement(id, rendement);
     }
 
-    @CrossOrigin(origins = "*")
+    
     @PostMapping("/delete")
     public void deleteparcelle(@RequestParam int id)throws Exception{
         service.deleteparcelle(id);
