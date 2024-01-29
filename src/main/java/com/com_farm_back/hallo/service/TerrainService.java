@@ -1,5 +1,4 @@
 package com.com_farm_back.hallo.service;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -93,6 +92,10 @@ public class TerrainService {
 
     public void deleteTerrain(int id) {
         terrainRepository.deleteById(id);
+    }
+
+    public List<Map<String, Object>> getstatTerrain(int idProprietaire) {
+        return dao.getstatTerrain(idProprietaire);
     }
 
 }

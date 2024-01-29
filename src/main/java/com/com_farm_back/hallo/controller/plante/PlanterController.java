@@ -29,6 +29,17 @@ public class PlanterController {
         return new ResponseEntity<>(simus, HttpStatus.OK);
     }
 
+    @PostMapping("/recolter")
+    public ResponseEntity<String> recolter(
+            @RequestParam int idplantation,
+            @RequestParam int rendement,
+            @RequestParam int idparcelle) {
+        
+        planterService.recolter(idplantation, rendement, idparcelle);
+        return ResponseEntity.status(HttpStatus.OK).body("Recolte effectuee avec succes");
+    }
+    
+
     @GetMapping("/{id}")
     public ResponseEntity<Planter> getPlanterById(@PathVariable("id") int id) {
         Planter planter = planterService.getPlanterById(id);

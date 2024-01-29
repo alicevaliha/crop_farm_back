@@ -197,6 +197,21 @@ select v.id_plantation,p.id_parcelle,v.id_plante,v.nom_plante,v.rendement, (p.lo
 from v_planter_plante as v 
 join parcelle as p on v.id_parcelle=p.id_parcelle;
 
+--view pour totale surface des terrains du proprietaire
+
+create or replace view v_surface as 
+select id_terrain,sum(longueur*largeur) as surface from parcelle group by id_terrain;
+
+create or replace view v_all_surface as
+select p.idproprietaire,p.nom,p.id_terrain,s.surface
+from v_parcelle_proprietaire as p
+join v_surface as s on p.id_terrain=s.id_terrain;
+
+--view pour totale de terrain possèdé
+
+create or replace view v_count_terrain as 
+select count(id_terrain) as nbterrain, id_proprietaire from terrain group by id_proprietaire;
+
 select p.id_parcelle,p.longueur,p.largeur
 from parcelle as p
 join proprietaire as pr on p.id_terrain=pr.id_terrain;

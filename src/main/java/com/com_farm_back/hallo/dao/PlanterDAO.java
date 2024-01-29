@@ -31,5 +31,20 @@ public class PlanterDAO {
 
         return rows;
     }
+
+    public void recolter(int idplantation,int rendement,int idparcelle){
+
+        String sql = "insert into recolte(id_parcelle,id_plantation,dateaction,rendement) values(";
+        sql+= idparcelle+","+idplantation+",NOW(),"+rendement+")";
+        jdbcTemplate.update(sql);
+
+        String sql2 = "UPDATE PLANTER SET etat=1 where id_plantation="+idplantation;
+        // System.out.println("Executing SQL query: " + sql);
+
+        jdbcTemplate.update(sql2);
+
+        // return rows;
+
+    }
     
 }

@@ -1,6 +1,8 @@
 
 package com.com_farm_back.hallo.dao;
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -34,6 +36,14 @@ public class TerrainDAO {
         List<Terrain> result = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Terrain.class));
         
         return result;
+    }
+
+    public List<Map<String, Object>> getstatTerrain(int idProprietaire) {
+        String sql = "select sum(surface) , idproprietaire from v_all_surface where idproprietaire="+ idProprietaire+" group by idproprietaire";
+        System.out.println(sql);
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+        
+        return rows;
     }
 
     

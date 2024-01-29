@@ -40,6 +40,10 @@ public class PlanterService {
     public List<Map<String, Object>> getSimulation() {
         return dao.getSimulation();
     }
+
+    public void recolter(int idplantation,int rendement,int idparcelle){
+        dao.recolter(idplantation, rendement, idparcelle);
+    }
     
 
 }

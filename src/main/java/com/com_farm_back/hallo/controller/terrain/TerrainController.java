@@ -1,6 +1,8 @@
 package com.com_farm_back.hallo.controller.terrain;
 
 import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,6 +52,12 @@ public class TerrainController {
     public ResponseEntity<Terrain> getTerrainById(@PathVariable("id") int id) {
         Terrain terrain = terrainService.getTerrainById(id);
         return terrain != null ? ResponseEntity.ok(terrain) : ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/stats/{id}")
+    public ResponseEntity< List<Map<String, Object>>> getStats(@PathVariable("id") int id) {
+        List<Map<String, Object>> simus = terrainService.getstatTerrain(id);
+        return new ResponseEntity<>(simus, HttpStatus.OK);
     }
 
     @GetMapping("/active")
