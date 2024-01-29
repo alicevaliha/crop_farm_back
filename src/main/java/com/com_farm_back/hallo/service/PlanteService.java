@@ -4,16 +4,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+
+import com.com_farm_back.hallo.dao.PlanteDAO;
+import com.com_farm_back.hallo.dao.PlanterDAO;
 import com.com_farm_back.hallo.model.plante.Plante;
 import com.com_farm_back.hallo.repository.PlanteRepository;
+import com.com_farm_back.hallo.repository.PlanterRepository;
 
 
 @Service
 public class PlanteService {
 
+    private final PlanteDAO dao;
     @Autowired
     private PlanteRepository planteRepository;
 
+    @Autowired
+    public PlanteService(PlanteDAO dao){
+        this.dao=dao;
+    } 
     public List<Plante> getAllPlantes() {
         return planteRepository.findAll();
     }
@@ -80,6 +89,10 @@ public class PlanteService {
             // Gérer le cas où la plante n'est pas trouvée
             throw new IllegalArgumentException("Plante not found with id: " + id);
         }
+    }
+
+    public List<Plante> getPlantesbycategorie(int categ) {
+        return dao.getPlantesbycategorie(categ);
     }
     
     

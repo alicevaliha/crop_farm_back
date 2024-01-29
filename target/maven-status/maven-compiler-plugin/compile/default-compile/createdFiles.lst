@@ -24,6 +24,7 @@ com/com_farm_back/hallo/dao/PlanterDAO.class
 com/com_farm_back/hallo/service/PlanterService.class
 com/com_farm_back/hallo/model/proprietaire/Proprietaire.class
 com/com_farm_back/hallo/service/Proprietaire_serve.class
+com/com_farm_back/hallo/dao/PlanteDAO.class
 com/com_farm_back/hallo/service/PlanteService.class
 com/com_farm_back/hallo/dao/Parcelle_dao.class
 com/com_farm_back/hallo/controller/proprietaire/Proprietaire_controller.class

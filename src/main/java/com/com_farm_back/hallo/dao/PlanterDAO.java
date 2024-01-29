@@ -23,7 +23,7 @@ public class PlanterDAO {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-   public List<Map<String, Object>>  getSimulation() {
+    public List<Map<String, Object>>  getSimulation() {
         String sql = "SELECT * FROM simulations";
         System.out.println("Executing SQL query: " + sql);
 

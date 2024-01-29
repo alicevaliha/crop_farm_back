@@ -36,6 +36,12 @@ public class PlanteController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/categories/{id}")
+    public ResponseEntity<List<Plante>> getPlanteByCategorie(@PathVariable("id") Integer id) {
+        List<Plante> plantes = planteService.getPlantesbycategorie(id);
+        return new ResponseEntity<>(plantes, HttpStatus.OK);
+    }
+    
     @PostMapping
     public ResponseEntity<Plante> createPlante(@RequestBody Plante plante) {
         Plante savedPlante = planteService.savePlante(plante);
