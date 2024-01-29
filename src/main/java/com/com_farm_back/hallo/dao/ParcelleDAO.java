@@ -34,19 +34,19 @@ public class ParcelleDAO {
         return rows;
     }
 
-    public List<Parcelle>  getParcelleByTerrain(int idterrain) {
+    public List<Map<String, Object>>  getParcelleByTerrain(int idterrain) {
         String sql = "SELECT * FROM v_all_concat where id_terrain="+idterrain;
         System.out.println(sql);
-        List<Parcelle> result = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Parcelle.class));
+        List<Map<String, Object>> result =jdbcTemplate.queryForList(sql);
         
         return result;
     }
 
 
-    public List<Parcelle>  getParcelleByProprietaire(int idproprio) {
+    public List<Map<String, Object>>  getParcelleByProprietaire(int idproprio) {
         String sql = "SELECT * FROM v_all_concat where idproprietaire="+idproprio;
         System.out.println(sql);
-        List<Parcelle> result = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Parcelle.class));
+        List<Map<String, Object>> result =  jdbcTemplate.queryForList(sql);
         
         return result;
     }

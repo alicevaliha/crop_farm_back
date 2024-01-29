@@ -72,11 +72,11 @@ public class ParcelleService {
         return dao.getDataParcelle();
     } 
 
-    public List<Parcelle>  getParcelleByTerrain(int idterrain) {
+    public List<Map<String, Object>>  getParcelleByTerrain(int idterrain) {
         return dao.getParcelleByTerrain(idterrain);
     }
 
-    public List<Parcelle>  getParcelleByProprietaire(int idproprio) {
+    public List<Map<String, Object>>  getParcelleByProprietaire(int idproprio) {
         return dao.getParcelleByProprietaire(idproprio);
     }
 

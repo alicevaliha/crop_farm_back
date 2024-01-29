@@ -35,15 +35,15 @@ public class ParcelleController {
     }
 
     @GetMapping("/terrains/{id}")
-    public ResponseEntity<List<Parcelle>> getParcelleByTerrain(@PathVariable("id") int id) {
-        List<Parcelle> parcelles = parcelleService.getParcelleByTerrain(id);
-        return new ResponseEntity<>(parcelles,HttpStatus.OK);
+    public ResponseEntity<List<Map<String, Object>>> getParcelleByTerrain(@PathVariable("id") int id) {
+        // List<Parcelle> parcelles = parcelleService.getParcelleByTerrain(id);
+        return new ResponseEntity<>(parcelleService.getParcelleByTerrain(id),HttpStatus.OK);
     }
 
     @GetMapping("/proprietaires/{id}")
-    public ResponseEntity<List<Parcelle>> getParcelleByProprietaire(@PathVariable("id") int id) {
-        List<Parcelle> parcelles = parcelleService.getParcelleByProprietaire(id);
-        return new ResponseEntity<>(parcelles,HttpStatus.OK);
+    public ResponseEntity<List<Map<String, Object>>> getParcelleByProprietaire(@PathVariable("id") int id) {
+        // List<Parcelle> parcelles = parcelleService.getParcelleByProprietaire(id);
+        return new ResponseEntity<>(parcelleService.getParcelleByProprietaire(id),HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
