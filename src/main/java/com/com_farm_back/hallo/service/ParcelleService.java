@@ -76,4 +76,8 @@ public class ParcelleService {
         return dao.getParcelleByTerrain(idterrain);
     }
 
+    public List<Parcelle>  getParcelleByProprietaire(int idproprio) {
+        return dao.getParcelleByProprietaire(idproprio);
+    }
+
 }

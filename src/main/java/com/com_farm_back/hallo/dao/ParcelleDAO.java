@@ -41,5 +41,14 @@ public class ParcelleDAO {
         
         return result;
     }
+
+
+    public List<Parcelle>  getParcelleByProprietaire(int idproprio) {
+        String sql = "SELECT * FROM v_all_concat where id_proprietaire="+idproprio;
+        System.out.println(sql);
+        List<Parcelle> result = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Parcelle.class));
+        
+        return result;
+    }
     
 }

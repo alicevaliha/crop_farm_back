@@ -40,6 +40,12 @@ public class ParcelleController {
         return new ResponseEntity<>(parcelles,HttpStatus.OK);
     }
 
+    @GetMapping("/proprietaires/{id}")
+    public ResponseEntity<List<Parcelle>> getParcelleByProprietaire(@PathVariable("id") int id) {
+        List<Parcelle> parcelles = parcelleService.getParcelleByProprietaire(id);
+        return new ResponseEntity<>(parcelles,HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Parcelle> getParcelleById(@PathVariable("id") int id) {
         Optional<Parcelle> parcelle = parcelleService.getParcelleById(id);
