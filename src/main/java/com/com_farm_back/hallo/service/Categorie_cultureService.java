@@ -34,8 +34,12 @@ public class Categorie_cultureService {
         Optional<Categorie_culture> optionalCategoryCulture = categorie_cultureRepository.findById(id);
         if (optionalCategoryCulture.isPresent()) {
             Categorie_culture existingCategoryCulture = optionalCategoryCulture.get();
-            existingCategoryCulture.setNomcategorie(categorieDetails.getNomcategorie());
-            existingCategoryCulture.setCorbeille(categorieDetails.getCorbeille());
+            if(categorieDetails.getNomcategorie()!=null){
+                existingCategoryCulture.setNomcategorie(categorieDetails.getNomcategorie());
+            } 
+            if(categorieDetails.getCorbeille()!=0){
+                existingCategoryCulture.setCorbeille(categorieDetails.getCorbeille());
+            } 
             return categorie_cultureRepository.save(existingCategoryCulture);
         } else {
             return null;
