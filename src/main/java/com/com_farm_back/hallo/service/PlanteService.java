@@ -3,6 +3,7 @@ package com.com_farm_back.hallo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import com.com_farm_back.hallo.dao.PlanteDAO;
@@ -95,5 +96,9 @@ public class PlanteService {
         return dao.getPlantesbycategorie(categ);
     }
     
+    public List<Map<String, Object>> graphPlante(int idProprietaire) {
+        return dao.graphPlante(idProprietaire);
+    }
+
     
 }

@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import com.com_farm_back.hallo.model.plante.Plante;
 import com.com_farm_back.hallo.repository.PlanteRepository;
@@ -36,12 +37,18 @@ public class PlanteController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/graphdara/{id}")
+    public ResponseEntity< List<Map<String, Object>>> graphPlante(@PathVariable("id") int id) {
+        List<Map<String, Object>> simus = planteService.graphPlante(id);
+        return new ResponseEntity<>(simus, HttpStatus.OK);
+    }
+
     @GetMapping("/categories/{id}")
     public ResponseEntity<List<Plante>> getPlanteByCategorie(@PathVariable("id") Integer id) {
         List<Plante> plantes = planteService.getPlantesbycategorie(id);
         return new ResponseEntity<>(plantes, HttpStatus.OK);
     }
-    
+
     @PostMapping
     public ResponseEntity<Plante> createPlante(@RequestBody Plante plante) {
         Plante savedPlante = planteService.savePlante(plante);
