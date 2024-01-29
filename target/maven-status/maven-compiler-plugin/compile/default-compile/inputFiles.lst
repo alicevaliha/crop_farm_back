@@ -1,8 +1,10 @@
+/Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/service/Categorie_cultureService.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/service/Parcelle_serve.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/model/proprietaire/Proprietaire.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/controller/terrain/Terrain_controller.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/service/Categories_parcelleService.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/controller/plante/PlanterController.java
+/Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/controller/categorie/Categorie_cultureController.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/controller/terrain/TerrainController.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/controller/parcelle/ParcelleController.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/controller/proprietaire/Proprietaire_controller.java
@@ -15,6 +17,7 @@
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/service/PlanteService.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/dao/ProprietaireDAO.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/dao/PlanterDAO.java
+/Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/repository/Categorie_cultureRepository.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/dao/Proprietaire_dao.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/controller/plante/PlanteController.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/service/ParcelleService.java
