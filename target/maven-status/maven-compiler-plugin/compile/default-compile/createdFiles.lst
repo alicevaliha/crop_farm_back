@@ -38,7 +38,6 @@ com/com_farm_back/hallo/model/categorie/Categorie_culture.class
 com/com_farm_back/hallo/controller/plante/PlanteController.class
 com/com_farm_back/hallo/model/plante/Planter.class
 com/com_farm_back/hallo/model/parcelle/Parcelle.class
-com/com_farm_back/hallo/repository/MessagerieRepository.class
 com/com_farm_back/hallo/config/CorsConfig.class
 com/com_farm_back/hallo/service/MessageService.class
 com/com_farm_back/hallo/service/TerrainService.class
@@ -46,6 +45,7 @@ com/com_farm_back/hallo/repository/ParcelleRepository.class
 com/com_farm_back/hallo/dao/Plante_dao.class
 com/com_farm_back/hallo/dao/Proprietaire_dao.class
 com/com_farm_back/hallo/repository/Categorie_cultureRepository.class
+com/com_farm_back/hallo/config/MongoConfig.class
 com/com_farm_back/hallo/service/Parcelle_serve.class
 com/com_farm_back/hallo/model/categorie/Categories_parcelle.class
 com/com_farm_back/hallo/model/dto/TerrainDTO.class
@@ -54,7 +54,6 @@ com/com_farm_back/hallo/service/ProprietaireService.class
 com/com_farm_back/hallo/repository/PlanteRepository.class
 com/com_farm_back/hallo/repository/Categories_parcelleRepository.class
 com/com_farm_back/hallo/model/proprietaire/Messagerie.class
-com/com_farm_back/hallo/service/Messagerie_serve.class
 com/com_farm_back/hallo/service/Plante_serve.class
 com/com_farm_back/hallo/repository/TerrainRepository.class
 com/com_farm_back/hallo/controller/terrain/TerrainController.class

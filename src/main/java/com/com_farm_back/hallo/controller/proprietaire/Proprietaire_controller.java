@@ -6,7 +6,7 @@ import com.com_farm_back.hallo.controller.exception.Gestion_exception;
 import com.com_farm_back.hallo.model.dto.ProprietaireDTO;
 import com.com_farm_back.hallo.model.proprietaire.Messagerie;
 import com.com_farm_back.hallo.model.proprietaire.Proprietaire;
-import com.com_farm_back.hallo.service.Messagerie_serve;
+// import com.com_farm_back.hallo.service.Messagerie_serve;
 import com.com_farm_back.hallo.service.Proprietaire_serve;
 
 import java.time.LocalDate;
@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequestMapping("api/proprietaire")
 public class Proprietaire_controller {
     @Autowired
-    Messagerie_serve messagerieService;
+    // Messagerie_serve messagerieService;
     private final Proprietaire_serve service;
     private static final Logger logger = LoggerFactory.getLogger(Proprietaire_controller.class);
     public Proprietaire_controller(Proprietaire_serve servivce)
@@ -85,35 +85,35 @@ public class Proprietaire_controller {
     
     // --------------------------------------------------------------------
       
-    @PostMapping("messagerie")
-    public ResponseEntity<Object> nouveauMessage(@RequestBody Messagerie messagerie) {
-        try {
+    // @PostMapping("messagerie")
+    // public ResponseEntity<Object> nouveauMessage(@RequestBody Messagerie messagerie) {
+    //     try {
             
-            String idEnvoyeur = messagerie.getIdEnvoyeur();
-            messagerie.setIdEnvoyeur(idEnvoyeur);
-            messagerieService.nouveauMessage(messagerie);
-            return Gestion_exception.generateResponse("Message envoye",HttpStatus.OK ,messagerie);
-        } catch (Exception exception) {
-            System.out.println("Erreur: " + exception.getMessage());
-            exception.printStackTrace();
-            return Gestion_exception.generateResponse("Message invalid",HttpStatus.INTERNAL_SERVER_ERROR ,exception.getMessage());
-        }
-    }
+    //         String idEnvoyeur = messagerie.getIdEnvoyeur();
+    //         messagerie.setIdEnvoyeur(idEnvoyeur);
+    //         messagerieService.nouveauMessage(messagerie);
+    //         return Gestion_exception.generateResponse("Message envoye",HttpStatus.OK ,messagerie);
+    //     } catch (Exception exception) {
+    //         System.out.println("Erreur: " + exception.getMessage());
+    //         exception.printStackTrace();
+    //         return Gestion_exception.generateResponse("Message invalid",HttpStatus.INTERNAL_SERVER_ERROR ,exception.getMessage());
+    //     }
+    // }
 
      
-    @PostMapping("discussions")
-    public ResponseEntity<Object> discussions(@RequestBody Messagerie messagerie) 
-    {
-        try {
-            String idEnvoyeur = messagerie.getIdEnvoyeur();
-            List<Messagerie> discussions = messagerieService.getDiscussions(idEnvoyeur, messagerie.getIdReceveur());
-            return Gestion_exception.generateResponse("discussions",HttpStatus.OK ,discussions);
-        } catch (Exception exception) {
-            System.out.println("Erreur: " + exception.getMessage());
-            exception.printStackTrace();
-            return Gestion_exception.generateResponse("discussions error",HttpStatus.OK ,exception.getMessage());
-        }
-    }
+    // @PostMapping("discussions")
+    // public ResponseEntity<Object> discussions(@RequestBody Messagerie messagerie) 
+    // {
+    //     try {
+    //         String idEnvoyeur = messagerie.getIdEnvoyeur();
+    //         List<Messagerie> discussions = messagerieService.getDiscussions(idEnvoyeur, messagerie.getIdReceveur());
+    //         return Gestion_exception.generateResponse("discussions",HttpStatus.OK ,discussions);
+    //     } catch (Exception exception) {
+    //         System.out.println("Erreur: " + exception.getMessage());
+    //         exception.printStackTrace();
+    //         return Gestion_exception.generateResponse("discussions error",HttpStatus.OK ,exception.getMessage());
+    //     }
+    // }
    
 
     

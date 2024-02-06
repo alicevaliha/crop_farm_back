@@ -21,6 +21,7 @@
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/repository/Categorie_cultureRepository.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/dao/Proprietaire_dao.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/controller/plante/PlanteController.java
+/Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/config/MongoConfig.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/service/ParcelleService.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/dao/Terrain_dao.java
 /Users/macbook/Documents/git clones/crop_farm_back/src/main/java/com/com_farm_back/hallo/repository/TerrainRepository.java
