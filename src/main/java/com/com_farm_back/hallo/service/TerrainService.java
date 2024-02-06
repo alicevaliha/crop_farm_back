@@ -102,4 +102,7 @@ public class TerrainService {
         return dao.getstatTerrainNb(idProprietaire);
     } 
 
+    public void insertPhotos(String photo,int idterrain){
+        dao.insertPhotos(photo, idterrain);
+    } 
 }

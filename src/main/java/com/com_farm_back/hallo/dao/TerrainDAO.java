@@ -54,6 +54,12 @@ public class TerrainDAO {
         return rows;
     }
 
+    public void insertPhotos(String photo,int idterrain){
+        String sql = "insert into photos_terrain (id_terrain,photo) values ("+ idterrain+",'"+photo+"')";
+        System.out.println(sql);
+        jdbcTemplate.update(sql);
+    }
+
     
 
 }

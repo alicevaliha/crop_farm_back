@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.com_farm_back.hallo.model.terrain.Terrain;
 import com.com_farm_back.hallo.service.TerrainService;
@@ -106,4 +107,10 @@ public class TerrainController {
         terrainService.deleteTerrain(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @PostMapping("ajouterphoto/{id}")
+    public void insertTerrain(@PathVariable("id") int id, @RequestParam("photo") String photo) {
+        terrainService.insertPhotos(photo,id);
+    }
+
 }
