@@ -21,7 +21,9 @@ com/com_farm_back/hallo/service/ParcelleService.class
 com/com_farm_back/hallo/controller/categorie/Categorie_cultureController.class
 com/com_farm_back/hallo/dao/TerrainDAO.class
 com/com_farm_back/hallo/dao/PlanterDAO.class
+com/com_farm_back/hallo/model/messages/Message.class
 com/com_farm_back/hallo/service/PlanterService.class
+com/com_farm_back/hallo/controller/message/MessageController.class
 com/com_farm_back/hallo/model/proprietaire/Proprietaire.class
 com/com_farm_back/hallo/service/Proprietaire_serve.class
 com/com_farm_back/hallo/dao/PlanteDAO.class
@@ -38,6 +40,7 @@ com/com_farm_back/hallo/model/plante/Planter.class
 com/com_farm_back/hallo/model/parcelle/Parcelle.class
 com/com_farm_back/hallo/repository/MessagerieRepository.class
 com/com_farm_back/hallo/config/CorsConfig.class
+com/com_farm_back/hallo/service/MessageService.class
 com/com_farm_back/hallo/service/TerrainService.class
 com/com_farm_back/hallo/repository/ParcelleRepository.class
 com/com_farm_back/hallo/dao/Plante_dao.class
@@ -46,6 +49,7 @@ com/com_farm_back/hallo/repository/Categorie_cultureRepository.class
 com/com_farm_back/hallo/service/Parcelle_serve.class
 com/com_farm_back/hallo/model/categorie/Categories_parcelle.class
 com/com_farm_back/hallo/model/dto/TerrainDTO.class
+com/com_farm_back/hallo/repository/MessageRepository.class
 com/com_farm_back/hallo/service/ProprietaireService.class
 com/com_farm_back/hallo/repository/PlanteRepository.class
 com/com_farm_back/hallo/repository/Categories_parcelleRepository.class
