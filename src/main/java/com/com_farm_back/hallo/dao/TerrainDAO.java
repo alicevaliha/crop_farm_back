@@ -60,6 +60,12 @@ public class TerrainDAO {
         jdbcTemplate.update(sql);
     }
 
+    public void deletephoto(int idphoto){
+        String sql = "delete from photos_terrain where id_photos_terrain="+idphoto;
+        System.out.println(sql);
+        jdbcTemplate.update(sql);
+    }
+
     
 
 }

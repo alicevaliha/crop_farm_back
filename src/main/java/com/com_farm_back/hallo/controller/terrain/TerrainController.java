@@ -113,4 +113,11 @@ public class TerrainController {
         terrainService.insertPhotos(photo,id);
     }
 
+    //ici id id de la photo
+    @DeleteMapping("deletephoto/{id}")
+    public void deletephoto(@PathVariable("id") int idphoto){
+        terrainService.deletephoto(idphoto);
+    }
+
+
 }

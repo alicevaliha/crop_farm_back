@@ -105,4 +105,7 @@ public class TerrainService {
     public void insertPhotos(String photo,int idterrain){
         dao.insertPhotos(photo, idterrain);
     } 
+    public void deletephoto(int idphoto){
+        dao.deletephoto(idphoto);
+    }
 }
