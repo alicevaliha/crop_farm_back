@@ -71,10 +71,6 @@ public class PlanteService {
                 existingPlante.setSprite_plante(updatedPlante.getSprite_plante());
             }
     
-            if (updatedPlante.getPlaceingamemaker() != 0) {
-                existingPlante.setPlaceingamemaker(updatedPlante.getPlaceingamemaker());
-            }
-    
             if (updatedPlante.getCorbeille() != 0) {
                 existingPlante.setCorbeille(updatedPlante.getCorbeille());
             }
