@@ -66,6 +66,13 @@ public class TerrainDAO {
         jdbcTemplate.update(sql);
     }
 
+    public List<Map<String, Object>> getphotoTerrain(int idterrain) {
+        String sql = "select * from photos_terrain where id_terrain="+ idterrain;
+        System.out.println(sql);
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+        
+        return rows;
+    }
     
 
 }

@@ -75,6 +75,12 @@ public class TerrainController {
         return new ResponseEntity<>(simus, HttpStatus.OK);
     }
 
+    @GetMapping("/phototerrain/{id}")
+    public ResponseEntity< List<Map<String, Object>>> getPhotosTerrain(@PathVariable("id") int id) {
+        List<Map<String, Object>> simus = terrainService.getphotoTerrain(id);
+        return new ResponseEntity<>(simus, HttpStatus.OK);
+    }
+
     
     @GetMapping("/active")
     public ResponseEntity<List<Terrain>> getNonDeletedTerrains() {

@@ -108,4 +108,7 @@ public class TerrainService {
     public void deletephoto(int idphoto){
         dao.deletephoto(idphoto);
     }
+    public List<Map<String, Object>> getphotoTerrain(int idterrain) {
+        return dao.getphotoTerrain(idterrain);
+    }
 }
