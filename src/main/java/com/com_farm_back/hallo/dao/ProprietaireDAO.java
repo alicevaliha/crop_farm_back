@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.com_farm_back.hallo.model.plante.Plante;
 import com.com_farm_back.hallo.model.proprietaire.Proprietaire;
 
 @Repository
@@ -38,6 +39,18 @@ public class ProprietaireDAO {
         } catch (EmptyResultDataAccessException e) {
             throw new Exception("error during login", e);
         }
+    }
+
+    public List<Proprietaire> getAmis(int id) {
+
+        String sql = "SELECT * FROM proprietaire where id !="+id;
+        System.out.println("Executing SQL query: " + sql);
+
+        // Utiliser BeanPropertyRowMapper pour mapper les résultats à des objets Plante
+        List<Proprietaire> amis = jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Proprietaire.class));
+
+        return amis;
+
     }
 
     

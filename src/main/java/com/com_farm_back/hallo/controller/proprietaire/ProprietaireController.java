@@ -36,6 +36,12 @@ public class ProprietaireController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/amis/{id}")
+    public ResponseEntity<List<Proprietaire>> getAmis(@PathVariable("id") int id) {
+        List<Proprietaire> proprietaires = proprietaireService.getAmis(id);
+        return new ResponseEntity<>(proprietaires, HttpStatus.OK);
+    }
+
     
     @GetMapping("/login")
     public ResponseEntity<Proprietaire> Login(@RequestParam("mail") String mail,@RequestParam("mdp") String mdp) throws Exception{

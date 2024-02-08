@@ -24,6 +24,10 @@ public class ProprietaireService {
         return proprietaireRepository.findAll();
     }
 
+    public List<Proprietaire> getAmis(int id) {
+        return dao.getAmis(id);
+    }
+
     public Optional<Proprietaire> getProprietaireById(int id) {
         return proprietaireRepository.findById(id);
     }
