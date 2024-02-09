@@ -32,6 +32,15 @@ public class PlanterDAO {
         return rows;
     }
 
+    public List<Map<String, Object>>  getSimulationByproprietaire(int idproprietaire) {
+        String sql = "SELECT * FROM simulations where id_proprietaire="+idproprietaire;
+        System.out.println("Executing SQL query: " + sql);
+
+        List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+
+        return rows;
+    }
+
     public void recolter(int idplantation,int rendement,int idparcelle){
 
         String sql = "insert into recolte(id_parcelle,id_plantation,dateaction,rendement) values(";

@@ -41,6 +41,10 @@ public class PlanterService {
         return dao.getSimulation();
     }
 
+    public List<Map<String, Object>>  getSimulationByproprietaire(int idproprietaire) {
+        return dao.getSimulationByproprietaire(idproprietaire);
+    }
+
     public void recolter(int idplantation,int rendement,int idparcelle){
         dao.recolter(idplantation, rendement, idparcelle);
     }

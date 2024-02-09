@@ -30,6 +30,12 @@ public class PlanterController {
         return new ResponseEntity<>(simus, HttpStatus.OK);
     }
 
+    @GetMapping("/simulations/{id}")
+    public ResponseEntity< List<Map<String, Object>>> getSimulationByproprietaire(@PathVariable("id") int id) {
+        List<Map<String, Object>> simus = planterService.getSimulationByproprietaire(id);
+        return new ResponseEntity<>(simus, HttpStatus.OK);
+    }
+
    
     @PostMapping("/recolter")
     public ResponseEntity<String> recolter(
